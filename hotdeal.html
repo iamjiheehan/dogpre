@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>핫딜 | 강아지 대통령</title>
+        <link href="css/main.css" rel="stylesheet" />
+        <link href="css/common.css" rel="stylesheet" />
+        <link rel="icon" href="./img/favicon.png" type="image/x-icon">
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+        <!-- <script src="./js/main.js"></script> -->
+        <!-- 핫딜 -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Function to fetch the JSON data from the file
+                function fetchJSONData(url, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var data = JSON.parse(xhr.responseText);
+                            callback(data);
+                        }
+                    };
+                    xhr.open("GET", url, true);
+                    xhr.send();
+                }
+
+                // Function to update the HTML with product information
+                function updateProductInfo(data) {
+                    var hotdealItems = document.querySelectorAll(".hotdeal__item");
+
+                    // Loop through each item in the JSON data and update the corresponding elements
+                    data.forEach(function (item, index) {
+                        var hotdealItem = hotdealItems[index]; // Get the current .hotdeal__item element
+
+                        var hotdealImg = hotdealItem.querySelector(".hotdeal__img");
+                        var hotdealTextDelivery = hotdealItem.querySelector(".hotdeal__text-delivery");
+                        var hotdealTextTitleLink = hotdealItem.querySelector(".hotdeal__text-title");
+                        var hotdealTextSale = hotdealItem.querySelector(".hotdeal__text-sale");
+                        var hotdealTextOrigin = hotdealItem.querySelector(".hotdeal__text-origin");
+                        var hotdealTextPrice = hotdealItem.querySelector(".hotdeal__text-price");
+                        var hotdealTextStarLink = hotdealItem.querySelector(".hotdeal__text-star");
+                        var hotdealTextReview = hotdealItem.querySelector(".hotdeal__text-reviews");
+                        var hotdealTextSpecial = hotdealItem.querySelector(".hotdeal__text-special");
+                        // var hotdealTextDue = hotdealItem.querySelector(".hotdeal__text-due");
+
+                        // Update the content of the selected elements with the data from the JSON file
+                        hotdealImg.src = item.url;
+                        hotdealImg.alt = item.title;
+                        hotdealTextDelivery.textContent = item.delivery;
+                        hotdealTextTitleLink.textContent = item.title;
+                        hotdealTextSale.textContent = item.sale;
+                        hotdealTextOrigin.textContent = item.original;
+                        hotdealTextPrice.textContent = item.price;
+                        hotdealTextStarLink.textContent = "⭐".repeat(parseInt(item.score));
+                        hotdealTextReview.textContent = item.reviews;
+                        hotdealTextSpecial.textContent = item.special;
+                        // hotdealTextDue.textContent = item.due;
+                    });
+                }
+                // Fetch the JSON data and update the HTML with product information
+                fetchJSONData("./json/hotdeal-sub.json", updateProductInfo);
+            });
+        </script>
+    </head>
+    <body>
+            <nav>
+                <div class="container">
+                    <header>
+                        <div class="header__logo">
+                            <a href="#">
+                                <img src="./img/main_logo.PNG" alt="">
+                            </a>
+                        </div>
+                        <div class="header__wrap">
+                            <form>
+                                <div class="header__search">
+                                    <input class="header__search-input" type="text" placeholder="3만원 이상 무료배송" />
+                                    <button class="header__search-btn">
+                                        <span>
+                                            <svg width="27" height="auto" viewBox="0 0 24 24" class="header__search-icon" src="./img/search.svg" alt="search" role="img">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8353 4.4502C7.30892 4.4502 4.4502 7.30892 4.4502 10.8353C4.4502 14.3617 7.30892 17.2205 10.8353 17.2205C11.6199 17.2205 12.3699 17.0793 13.0622 16.8216C13.4504 16.6771 13.8822 16.8747 14.0267 17.2629C14.1712 17.6511 13.9736 18.0829 13.5854 18.2274C12.7282 18.5465 11.8012 18.7205 10.8353 18.7205C6.48049 18.7205 2.9502 15.1902 2.9502 10.8353C2.9502 6.48049 6.48049 2.9502 10.8353 2.9502C15.1902 2.9502 18.7205 6.48049 18.7205 10.8353C18.7205 12.742 18.0428 14.4922 16.9162 15.8555L20.7305 19.6699C21.0234 19.9628 21.0234 20.4376 20.7305 20.7305C20.4376 21.0234 19.9628 21.0234 19.6699 20.7305L15.7039 16.7645C15.207 16.2677 15.2378 15.5034 15.6556 15.0229C16.6308 13.9014 17.2205 12.4382 17.2205 10.8353C17.2205 7.30892 14.3617 4.4502 10.8353 4.4502Z"></path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
+                            <div class="header__icons">
+                                <a href="#">
+                                    <i class="fa-regular fa-bell fa-xl" style="color: #000000"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-regular fa-user fa-xl" style="color: #000000"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-plus fa-xl" style="color: #000000"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </header>
+                    <section class="category relative">
+                        <div class="category-first-ul">
+                            <ul>
+                                <li class="category__item relative">
+                                    <a href="#">
+                                        <span class="category__item-mark"></span>
+                                        <span class="category__item-txt">사료</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href="#">
+                                        <span class="category__item-txt">간식</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href="#">
+                                        <span class="category__item-txt">건강관리</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href="#">
+                                        <span class="category__item-txt">위생/배변</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href="#">
+                                        <span class="category__item-txt">미용/목욕</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href="#">
+                                        <span class="category__item-txt">급식기/급수기</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href="#">
+                                        <span class="category__item-txt">하우스/울타리</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href="#">
+                                        <span class="category__item-txt">이동장</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href="#">
+                                        <span class="category__item-txt">의류/악세서리</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href="#">
+                                        <span class="category__item-txt">목줄/인식표/리드줄</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href="#">
+                                        <span class="category__item-txt">장난감</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href="#">
+                                        <span class="category__item-txt">훈련</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href="#">
+                                        <span class="category__item-txt">생활/가전</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="category-first">
+                            <div class="category-first-title">
+                                <i class="fa-solid fa-bars" style="color: #000000"></i>
+                                <a href="#"><span>카테고리</span></a>
+                                
+                            </div>
+                            
+                            <div class="category-second">
+                                <a href="#">
+                                    <span>핫딜</span>
+                                </a>
+                                <a href="#">
+                                    <span>체험단</span>
+                                </a>
+                                <a href="#">
+                                    <span>랭킹</span>
+                                </a>
+                                <a href="#">
+                                    <span>신상품</span>
+                                </a>
+                                <a href="#">
+                                    <span>브랜드</span>
+                                </a>
+                                <a href="#">
+                                    <span>사료샘플</span>
+                                </a>
+                                <a href="#">
+                                    <span>이벤트</span>
+                                </a>
+                                <a href="#">
+                                    <span>스티커샵</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="category-btn">
+                            <a href="#"><img src="https://funnc-static-images.s3.ap-northeast-2.amazonaws.com/common/gnb_banner_new.svg" alt="신선한 사료&간식 유통기한 책임제"></a>
+                        </div>
+                    </section>
+                </div>
+                <div class="navBar">
+                    <div class="container footer__txt-num">
+                        <a href="#" class="nav__home"><span>홈</span></a>
+                        <span>></span>
+                        <span>핫딜</span>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <h1 class="sub__title">핫딜</h1>
+                <div class="sub__icons-wrap">
+                    <button class="sub__icons-item ">
+                        <span>전체</span>
+                    </button>
+                    <button class="sub__icons-item">
+                        <span>사료</span>
+                    </button>
+                    <button class="sub__icons-item">
+                        <span>간식</span>
+                    </button>
+                    <button class="sub__icons-item">
+                        <span>건강관리</span>
+                    </button>
+                    <button class="sub__icons-item">
+                        <span>위생/배변</span>
+                    </button>
+                    <button class="sub__icons-item">
+                        <span>미용/목욕</span>
+                    </button>
+                    <button class="sub__icons-item">
+                        <span>급식/급수기</span>
+                    </button>
+                    <button class="sub__icons-item">
+                        <span>이동장</span>
+                    </button>
+                    <button class="sub__icons-item">
+                        <span>목줄/인식표/리드줄</span>
+                    </button>
+                    <button class="sub__icons-item">
+                        <span>장난감</span>
+                    </button>
+                    <button class="sub__icons-item">
+                        <span>생활/가전</span>
+                    </button>
+                </div>
+                <div class="hotdeal__wrap section__sub-wrap">
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hotdeal__item item-sub">
+                        <a href="#">
+                            <div class="hotdeal__img-wrap img__sub-wrap relative">
+                                <img class="hotdeal__img img" src="" alt="">
+                            </div>
+                            <div class="hotdeal__text flex_col_start">
+                                <p class="hotdeal__text-delivery text-delivery"></p>
+                                <p class="hotdeal__text-title text-title"></p>
+                                <p class="hotdeal__text-origin text-origin"></p>
+                                <div>
+                                    <span class="hotdeal__text-sale text-sale"></span>
+                                    <span class="hotdeal__text-price text-price"></span>
+                                </div>
+                                <div class="flex-row">
+                                    <span class="hotdeal__text-star text-star"></span>
+                                    <span class="hotdeal__text-reviews text-reviews"></span>
+                                </div>
+                                <span class="hotdeal__text-special text-special"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="sub__arrow-wrap">
+                    <ul class="sub__arrow-title">
+                        <li class="sub__arrow-item">
+                            <button class="sub__arrow-button">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                        </li>
+                        <li class="sub__arrow-item"><button class="sub__arrow-button">1</button></li>
+                        <li class="sub__arrow-item"><button class="sub__arrow-button">2</button></li>
+                        <li class="sub__arrow-item"><button class="sub__arrow-button">3</button></li>
+                        <li class="sub__arrow-item"><button class="sub__arrow-button">4</button></li>
+                        <li class="sub__arrow-item"><button class="sub__arrow-button">5</button></li>
+                        <li class="sub__arrow-item">
+                            <button class="sub__arrow-button">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <footer>
+                <div class="banner_footer">
+                    <div class="promise">
+                        <div class="container">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                    <img
+                                        src="https://dogpre.com/images/dogpre/7-value.svg"
+                                        alt=""
+                                    />
+                                    </a>
+                                </li>
+                                <hr class="hr-col"/>
+                                <li>
+                                    <a href="#">
+                                    <img src="https://dogpre.com/images/responsible.svg" alt="" />
+                                    </a>
+                                </li>
+                                <hr class="hr-col"/>
+                                <li>
+                                    <a href="#">
+                                    <img src="https://dogpre.com/images/preDelivery.svg" alt="" />
+                                    </a>
+                                </li>
+                                <hr class="hr-col"/>
+                                <li>
+                                    <a href="#">
+                                    <img src="https://dogpre.com/images/free.svg" alt="" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="intro">
+                        <div>
+                            <img src="./img/logo.PNG" alt="logo" />
+                        </div>
+                        <div class="footer__txt-wrap">
+                            <div class="footer__txt-grey footer__txt-item" >
+                                <a href="#">
+                                    <span class="footer__txt-grey">회사소개</span>
+                                </a>
+                                <span>|</span>
+                                <a href="#">
+                                    <span class="footer__txt-grey" style="color: #000000;">개인정보처리방침</span>
+                                </a>
+                                <span>|</span>
+                                <a href="#">
+                                    <span class="footer__txt-grey">이용약관</span>
+                                </a>
+                                <span>|</span>
+                                <a href="#">
+                                    <span class="footer__txt-grey">제휴 입점 및 문의</span>
+                                </a>
+                                <span>|</span>
+                                <a href="#">
+                                    <span class="footer__txt-grey">사업자 정보</span>
+                                </a>
+                            </div>
+                            <div class="footer__txt-second">
+                                <div class="footer__txt-item">
+                                    <span class="footer__txt-black">대표자</span>
+                                    <span class="footer__txt-num">김도성</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-black">사업자등록번호</span>
+                                    <span class="footer__txt-num">127-86-32494</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-black">주소</span>
+                                    <span class="footer__txt-num">서울특별시 강남구 삼성로 570 석천빌딩 지하 1층</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-black">구매안전(에스크로)서비스</span>
+                                </div>
+                                <div class="footer__txt-item">
+                                    <span class="footer__txt-black">통신판매업</span>
+                                    <span class="footer__txt-num">제 2013-서울강남-01570호</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-num">개인정보보호책임자</span>
+                                    <span class="footer__txt-grey">최온섭</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-black">팩스</span>
+                                    <span class="footer__txt-num">02-585-8477</span>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="footer__txt-num">Tel. 1588-2469</span>
+                                <a href="#"><span class="footer__txt-num">Email. webmaster@funnc.com</span></a>
+                            </div>
+                        </div>
+                        <div class="footer__title-section" style="margin: 0 auto 20px 0;">
+                            <div class="button__cs">
+                                <button>채팅문의</button>
+                            </div>
+                        <div>
+                            <div class="sns">
+                                <a href=""><img src="./img/fb.png" alt="facebook" /></a>
+                            </div>
+                            <div class="sns">
+                                <a href=""><img src="./img/insta.png" alt="instagram" /></a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="support">
+                        <hr />
+                        <ul>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-2-logo.jpg"
+                                        alt="세스코"
+                                    />
+                                </picture>
+                            </li>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-3-logo.jpg"
+                                        alt="공정거래위원회"
+                                    />
+                                </picture>
+                            </li>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-4-logo.jpg"
+                                        alt="소비자원"
+                                    />
+                                </picture>
+                            </li>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-5-logo.jpg"
+                                        alt="코모도"
+                                    />
+                                </picture>
+                            </li>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-6-logo.jpg"
+                                        alt="서울보증"
+                                    />
+                                </picture>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="service">
+                    <span
+                        >기업은행 채무지급보증 안내 당사는 고객님이 현금 결제한 금액에 대해
+                        기업은행과 채무지급보증 계약을 체결하여 안전거래를 보장하고
+                        있습니다.
+                    </span>
+                    <span>
+                        <a href="#"> 서비스 가입 사실 확인 </a>
+                    </span>
+                </div> -->
+            </footer>
+        </div>
+    </body>
+</html>

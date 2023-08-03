@@ -1,0 +1,97 @@
+[
+    {  
+        "delivery":"판매자배송",
+        "title": "포앤팜 밸런싱 모이스처크림",
+        "original" : "25,000원",
+        "sale" : "20%",
+        "price": "20,000원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/93/92995_detail_01991237.png",
+        "score":"5",
+        "reviews":"18",
+        "free":""
+    },
+    {  
+        "delivery":"대통령배송",
+        "title": "시저 홀썸볼 기프트 세트",
+        "original" : "16,800원",
+        "sale" : "23%",
+        "price": "12,900원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/94/93650_detail_01126082.png",
+        "score":"5",
+        "reviews":"34",
+        "special":"유통기한 책임제"
+    },
+    {  
+        "delivery":"대통령배송",
+        "title": "펫생각 하루치카 중형 톱니형 덴탈껌 12개입",
+        "original" : "12,900원",
+        "sale" : "23%",
+        "price": "9,900원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/92/91343_detail_7747.png",
+        "score":"5",
+        "reviews":"35",
+        "special":"유통기한 책임제"
+    },
+    {  
+        "delivery":"판매자배송",
+        "title": "코코시루 스마트 어플 연동 원격 자동급식기 6L",
+        "original" : "153,000원",
+        "sale" : "35%",
+        "price": "99,00원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/93/92344_detail_02118457.png",
+        "score":"5",
+        "reviews":"2",
+        "special":"무료배송"
+    },
+    {  
+        "delivery":"판매자배송",
+        "title": "보드미펫 강아지 노즈워크 장난감 공 핑크퍼플",
+        "original" : "17,900원",
+        "sale" : "34%",
+        "price": "11,900원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/94/93484_detail_01878389.png",
+        "score":"5",
+        "reviews":"3"
+    },
+    {  
+        "delivery":"대통령배송",
+        "title": "세븐펫 오래오래 터키츄 칠면조 힘줄 링 100% 20개입",
+        "original" : "58,000원",
+        "sale" : "54%",
+        "price": "26,900원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/92/91594_detail_03473267.jpg",
+        "score":"5",
+        "reviews":"15"
+    },
+    {  
+        "delivery":"대통령배송",
+        "title": "하울팟 식물성 약콩 펫 두유 50ml 10묶음",
+        "original" : "14,000원",
+        "sale" : "25%",
+        "price": "10,500원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/94/93484_detail_01878389.png",
+        "score":"5",
+        "reviews":"49",
+        "special":"유통기한 책임제"
+
+    },
+    {  
+        "delivery":"판매자배송",
+        "title": "리토카토 논슬립 인견매트 아보카도",
+        "sale" : "25%",
+        "price": "30,00원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/90/89258_detail_01650181.jpg",
+        "score":"5",
+        "reviews":"3"
+    },    
+    {  
+        "delivery":"대통령배송",
+        "title": "바우와우 리얼 육포 오리 200g",
+        "original" : "12,000원",
+        "sale" : "25%",
+        "price": "5,600원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/94/93484_detail_01878389.png",
+        "score":"5",
+        "reviews":"40,026"
+    } 
+]

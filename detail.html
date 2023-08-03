@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>상세페이지 | 강아지 대통령</title>
+        <link href="css/main.css" rel="stylesheet" />
+        <link href="css/common.css" rel="stylesheet" />
+        <link href="css/detail.css" rel="stylesheet" />
+        <link rel="icon" href="./img/favicon.png" type="image/x-icon">
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+        <!-- <script src="./js/main.js"></script> -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                function fetchJSONData(url, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var data = JSON.parse(xhr.responseText);
+                            callback(data);
+                        }
+                    };
+                    xhr.open("GET", url, true);
+                    xhr.send();
+                }
+
+                function updateProductInfo(data) {
+                    var relatedItems = document.querySelectorAll(".related__item");
+
+                    data.forEach(function (item, index) {
+                        var relatedItem = relatedItems[index]; 
+
+                        var relatedImg = relatedItem.querySelector(".related__img");
+                        var relatedTextTitleLink = relatedItem.querySelector(".related__text-title");
+                        var relatedTextSale = relatedItem.querySelector(".related__text-sale");
+                        var relatedTextOrigin = relatedItem.querySelector(".related__text-origin");
+                        var relatedTextPrice = relatedItem.querySelector(".related__text-price");
+                        var relatedTextStarLink = relatedItem.querySelector(".related__text-star");
+                        var relatedTextReview = relatedItem.querySelector(".related__text-reviews");
+                        var relatedTextSpecial = relatedItem.querySelector(".related__text-special");
+
+                        relatedImg.src = item.url;
+                        relatedImg.alt = item.title;
+                        relatedTextTitleLink.textContent = item.title;
+                        relatedTextSale.textContent = item.sale;
+                        relatedTextOrigin.textContent = item.original;
+                        relatedTextPrice.textContent = item.price;
+                        relatedTextStarLink.textContent = "⭐".repeat(parseInt(item.score));
+                        relatedTextReview.textContent = item.reviews;
+                        relatedTextSpecial.textContent = item.special;
+                    });
+                }
+                fetchJSONData("./json/related.json", updateProductInfo);
+            });
+        </script>
+    </head>
+    <body>
+            <nav>
+                <div class="container">
+                    <header>
+                        <div class="header__logo">
+                            <a href="index.html"  target="_self">
+                                <img src="./img/main_logo.PNG" alt="">
+                            </a>
+                        </div>
+                        <div class="header__wrap">
+                            <form>
+                                <div class="header__search">
+                                    <input class="header__search-input" type="text" placeholder="3만원 이상 무료배송" />
+                                    <button class="header__search-btn">
+                                        <span>
+                                            <svg width="27" height="auto" viewBox="0 0 24 24" class="header__search-icon" src="./img/search.svg" alt="search" role="img">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8353 4.4502C7.30892 4.4502 4.4502 7.30892 4.4502 10.8353C4.4502 14.3617 7.30892 17.2205 10.8353 17.2205C11.6199 17.2205 12.3699 17.0793 13.0622 16.8216C13.4504 16.6771 13.8822 16.8747 14.0267 17.2629C14.1712 17.6511 13.9736 18.0829 13.5854 18.2274C12.7282 18.5465 11.8012 18.7205 10.8353 18.7205C6.48049 18.7205 2.9502 15.1902 2.9502 10.8353C2.9502 6.48049 6.48049 2.9502 10.8353 2.9502C15.1902 2.9502 18.7205 6.48049 18.7205 10.8353C18.7205 12.742 18.0428 14.4922 16.9162 15.8555L20.7305 19.6699C21.0234 19.9628 21.0234 20.4376 20.7305 20.7305C20.4376 21.0234 19.9628 21.0234 19.6699 20.7305L15.7039 16.7645C15.207 16.2677 15.2378 15.5034 15.6556 15.0229C16.6308 13.9014 17.2205 12.4382 17.2205 10.8353C17.2205 7.30892 14.3617 4.4502 10.8353 4.4502Z"></path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
+                            <div class="header__icons">
+                                <a href="#">
+                                    <i class="fa-regular fa-bell fa-xl" style="color: #000000"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-regular fa-user fa-xl" style="color: #000000"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-plus fa-xl" style="color: #000000"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </header>
+                    <section class="category">
+                        <div class="category-first relative">
+                            <div class="category-first-ul">
+                                <ul>
+                                    <li class="category__item relative">
+                                        <a href="#">
+                                            <span class="category__item-mark"></span>
+                                            <span class="category__item-txt">사료</span>
+                                        </a>
+                                    </li>
+                                    <li class="category__item">
+                                        <a href="#">
+                                            <span class="category__item-txt">간식</span>
+                                        </a>
+                                    </li>
+                                    <li class="category__item">
+                                        <a href="#">
+                                            <span class="category__item-txt">건강관리</span>
+                                        </a>
+                                    </li>
+                                    <li class="category__item">
+                                        <a href="#">
+                                            <span class="category__item-txt">위생/배변</span>
+                                        </a>
+                                    </li>
+                                    <li class="category__item">
+                                        <a href="#">
+                                            <span class="category__item-txt">미용/목욕</span>
+                                        </a>
+                                    </li>
+                                    <li class="category__item">
+                                        <a href="#">
+                                            <span class="category__item-txt">급식기/급수기</span>
+                                        </a>
+                                    </li>
+                                    <li class="category__item">
+                                        <a href="#">
+                                            <span class="category__item-txt">하우스/울타리</span>
+                                        </a>
+                                    </li>
+                                    <li class="category__item">
+                                        <a href="#">
+                                            <span class="category__item-txt">이동장</span>
+                                        </a>
+                                    </li>
+                                    <li class="category__item">
+                                        <a href="#">
+                                            <span class="category__item-txt">의류/악세서리</span>
+                                        </a>
+                                    </li>
+                                    <li class="category__item">
+                                        <a href="#">
+                                            <span class="category__item-txt">목줄/인식표/리드줄</span>
+                                        </a>
+                                    </li>
+                                    <li class="category__item">
+                                        <a href="#">
+                                            <span class="category__item-txt">장난감</span>
+                                        </a>
+                                    </li>
+                                    <li class="category__item">
+                                        <a href="#">
+                                            <span class="category__item-txt">훈련</span>
+                                        </a>
+                                    </li>
+                                    <li class="category__item">
+                                        <a href="#">
+                                            <span class="category__item-txt">생활/가전</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex_row_start">
+                                <div class="category-first-title">
+                                    <i class="fa-solid fa-bars" style="color: #000000"></i>
+                                    <a href="#"><span>카테고리</span></a>
+                                </div>
+                                <div class="category-second">
+                                    <a href="#">
+                                        <span>핫딜</span>
+                                    </a>
+                                    <a href="#">
+                                        <span>체험단</span>
+                                    </a>
+                                    <a href="#">
+                                        <span>랭킹</span>
+                                    </a>
+                                    <a href="#">
+                                        <span>신상품</span>
+                                    </a>
+                                    <a href="#">
+                                        <span>브랜드</span>
+                                    </a>
+                                    <a href="#">
+                                        <span>사료샘플</span>
+                                    </a>
+                                    <a href="#">
+                                        <span>이벤트</span>
+                                    </a>
+                                    <a href="#">
+                                        <span>스티커샵</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-btn">
+                            <a href="#"><img src="https://funnc-static-images.s3.ap-northeast-2.amazonaws.com/common/gnb_banner_new.svg" alt="신선한 사료&간식 유통기한 책임제"></a>
+                        </div>
+                    </section>
+                </div>
+                <div class="navBar">
+                    <div class="container footer__txt-num">
+                        <a href="#" class="nav__home"><span>홈</span></a>
+                        <span>></span>
+                        <span>장난감</span>
+                        <span>></span>
+                        <span>노즈워크</span>
+                        <span>></span>
+                        <span>바잇미 마이버스데이 노즈워크 플레이북</span>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="detail__main">
+                        <div class="detail__main-left detail__main-item">
+                            <div class="detail__main__left-top">
+                                <img src="./img/detail__main__big.jpg" alt="강아지">
+                            </div>
+                            <div class="detail__main__left-bottom-wrap">
+                                <div class="detail__main__left-bottom">
+                                    <img src="./img/detail__main__small1.jpg" alt="">
+                                </div>
+                                <div class="detail__main__left-bottom">
+                                    <img src="./img/detail__main__small2.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail__main-right detail__main-item">
+                            <div class="detail__main__right-first">
+                                <a href="#">
+                                    <h2 class="normal">
+                                        바잇미
+                                    </h2>
+                                </a>
+                                <div class="detail__main__right__first-title">
+                                    <h2>바잇미 마이버스데이 노즈워크 플레이북</h2>
+                                    <div class="detail__main__right__first-icons">
+                                        <button class="detail__main__right__first-icon  btn-none">
+                                            <i class="fa-solid fa-share-nodes" style="color: #FF425C;"></i>
+                                        </button>
+                                        <button class="detail__main__right__first-icon btn-none">
+                                            <i class="fa-regular fa-heart" style="color: #FF425C;"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="text-star">⭐⭐⭐⭐⭐</span>
+                                    <a href="#">
+                                        <span>26개 후기 보기</span>
+                                    </a>
+                                </div>
+                                <div class="detail__main__right__first-price">
+                                    <div>
+                                        <span class="text-sale">9%</span>
+                                        <span class="text-origin">21,900원</span>
+                                    </div>
+                                    <h2>19,900원</h2>
+                                </div>
+                                <div class="detail__main__right__first-cash">
+                                    <img src="https://dogpre.com/images/icon/ic_mycash_big.png" alt="">
+                                    <span>최대 <strong>699원</strong> 캐시 적립 </span>
+                                    <img src="https://dogpre.com/images/icon/ic_mycash_big.png" alt="">
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="detail__main__right-second">
+                                <div class="detail__main__right__second-left">
+                                    <i class="fa-solid fa-truck" style="color: #FF425C;"></i>
+                                </div>
+                                <div class="detail__main__right__second-right">
+                                    <p class="pink bold">대통령 배송</p>
+                                    <p><strong>무료배송</strong> (30,000원 이상 구매 시)</p>
+                                    <p>오후 4시 이전 주문시 오늘출발</p>
+                                </div>
+                            </div>
+                            <div class="detail__main__right__second-bottom">
+                                <p>바잇미 마이버스데이 노즈워크 플레이북</p>
+                                <div>
+                                    <div>
+                                        <button>-</button>
+                                        <span>1</span>
+                                        <button>+</button>
+                                    </div>
+                                    <div><p class="darkgrey" style="font-size:15px"><strong>19,900</strong>원</p></div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="detail__main__right-third">
+                                <div class="detail__main__right__third-left">
+                                    <span>주문금액</span>
+                                    <span class="bold">19,900원</span>
+                                </div>
+                                <div class="detail__main__right__third-right">
+                                    <button class="bold">장바구니</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail__bar-line"></div>
+                <div class="detail__bar container">
+                    <button><span>상품정보</span></button>
+                    <button><span>질문/답변 0</span></button>
+                    <button><span>구매후기 26</span></button>
+                    <button><span>취소/교환/반품 안내</span></button>
+                </div>
+                <div class="detail__bar-line"></div>
+                <div class="container">
+
+                    <div class="detail">
+                        <div class="detail__explain">
+                            <h2 class="detail__explain-title">상품정보</h2>
+                            <div class="detail__explain-wrap">
+                                <div class="detail__explain-item">
+                                    <div class="detail__explain-content">
+                                        <h3 class="detail__explain-title">설명</h3>
+                                        <span>
+                                            바잇미 마이버스데이 노즈워크 플레이북은 총 6가지의 다양한 구성으로 이루어진 노즈워크 장난감입니다. 노즈워크 속 폭죽과 선물을 활용해 난이도 조절로 반려견의 흥미유발에 도움을 주며, 다양한 크기의 간식을 넣어 노즈워크로 활용을 할 수 있습니다. 또한, 유럽 어린이 완구 안전인증 통과된 장난감으로 안전한 패브릭과 패브릭 전용 접착풀로 제작 되어 안심하고 사용하실 수 있습니다.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="detail__explain-item">
+                                    <h3 class="detail__explain-title">특징 및 요약</h3>
+                                    <div class="detail__explain-content">
+                                        <ul>
+                                            <li>총 6가지 다양한 구성으로 이루어진 노즈워크 장난감</li>
+                                            <li>노즈워크 속 폭죽과 선물을 활용해 난이도 조절</li>
+                                            <li>유럽 어린이 완구 안전인증 통과된 장난감</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail__summary">
+                            <div class="detail__summary-img">
+                                <img src="./img/detail__summary-img.jpg" alt="">
+                            </div>
+                            <button><span>상품 상세 더 보기</span></button>
+                        </div>
+                    </div>
+                    <div class="detail__notice container">
+                        <img src="./img/detail__notice.png" alt="">
+                    </div>
+                    <div class="detail__qna">
+                        <div class="detail__title">
+                            <h1>질문/답변</h1>
+                            <button><span>더 보기 ></span></button>
+                        </div>
+                        <div class="detail__qna-box"><span>등록된 질문/답변이 없습니다.</span></div>
+                    </div>
+                    <div class="detail__qna">
+                        <div class="detail__title">
+                            <h1>구매후기</h1>
+                            <button>더 보기></button>
+                        </div>
+                        <div class="detail__review-avg">
+                            <div class="detail__review-wrap">
+                                <div>
+                                    <i class="fa-solid fa-star fa-xl" style="color: #ffc014;"></i>
+                                    <i class="fa-solid fa-star fa-xl" style="color: #ffc014;"></i>
+                                    <i class="fa-solid fa-star fa-xl" style="color: #ffc014;"></i>
+                                    <i class="fa-solid fa-star fa-xl" style="color: #ffc014;"></i>
+                                    <i class="fa-solid fa-star fa-xl" style="color: #ffc014;"></i>
+                                    <i class="fa-solid fa-star fa-xl" style="color: #ffc014;"></i>
+                                </div>
+                                <span class="bold">4.9</span>
+                                <span class="grey">(26)</span>
+                            </div>
+                            <div class="detail__review-photos">
+                                <img src="./img/detail__review-photos1.jpg" alt="">
+                                <img src="./img/detail__review-photos2.jpg" alt="">
+                                <img src="./img/detail__review-photos3.jpg" alt="">
+                                <img src="./img/detail__review-photos4.jpg" alt="">
+                                <img src="./img/detail__review-photos5.jpg" alt="">
+                                <img src="./img/detail__review-photos6.jpg" alt="">
+                                <img src="./img/detail__review-photos7.jpg" alt="">
+                                <div class="relative">
+                                    <div class="detail__review-photo-more">
+                                        <p class="bold">16</p>
+                                        <span>더 보기</span>
+                                    </div>
+                                    <img src="./img/detail__review-photos8.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="detail__reviews-wrap">
+                                <div class="detail__reviews-item">
+                                    <div class="detail__reviews-profile">
+                                        <div class="detail__reviews-info">
+                                            <div class="detail__reviews-info-flex">
+                                                <div class="detail__reviews-imgbox">
+                                                    <img src="./img/review-profile1.jpg" alt="">
+                                                </div>
+                                                <div class="detail__reviews_info-first grey">
+                                                    <div class="detail__reviews_info_first-flex">
+                                                        <div>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                        </div>
+                                                        <span>구매인증됨</span>
+                                                        <span> | </span>
+                                                        <span>2023.07.10</span>
+                                                    </div>
+                                                    <div class="detail__reviews_info_first-flex grey">
+                                                        <span>강*봉</span>
+                                                        <span>·</span>
+                                                        <span>포메라니안</span>
+                                                        <span>·</span>
+                                                        <span>7살</span>
+                                                        <span>·</span>
+                                                        <span>4.6kg</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="detail__reviews_info-second">
+                                                <div class="detail__reviews_info_second-imgBox">
+                                                    <button>
+                                                        <img class="inherit" src="./img/detail__review-photos1.jpg" alt="">
+                                                    </button>
+                                                </div>
+                                                <div class="detail__reviews_info_second-text" style="gap: 0; margin-top: 0;">
+                                                    <span>좋아요</span>
+                                                    <span>노즈워크용으로 좋습니다 ㅎㅎ</span>
+                                                </div>
+                                            </div>
+                                            <div class="detail__reviews_info-third">
+                                                <button>
+                                                    <i class="fa-solid fa-thumbs-up" style="color: #8d8d8d;"></i>
+                                                    <span> 도움이 됐어요 0</span>
+                                                </button>
+                                                <p class="grey">신고하기</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="detail__reviews-item">
+                                    <div class="detail__reviews-profile">
+                                        <div class="detail__reviews-info">
+                                            <div class="detail__reviews-info-flex">
+                                                <div class="detail__reviews-imgbox">
+                                                    <img src="./img/review-profile2.jpg" alt="">
+                                                </div>
+                                                <div class="detail__reviews_info-first grey">
+                                                    <div class="detail__reviews_info_first-flex">
+                                                        <div>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                        </div>
+                                                        <span>구매인증됨</span>
+                                                        <span> | </span>
+                                                        <span>2023.07.10</span>
+                                                    </div>
+                                                    <div class="detail__reviews_info_first-flex grey">
+                                                        <span>이*진</span>
+                                                        <span>·</span>
+                                                        <span>푸들</span>
+                                                        <span>·</span>
+                                                        <span>3살</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="detail__reviews_info-second">
+                                                <div class="detail__reviews_info_second-imgBox">
+                                                    <button>
+                                                        <img class="inherit" src="./img/detail__review-photos2.jpg" alt="">
+                                                    </button>
+                                                </div>
+                                                <div class="detail__reviews_info_second-text">
+                                                    <span>퀄러티가 대박입니다 ㅎㅎ</span>
+                                                    <span>어쩜 이리도이쁘게만드셨을까요 ㅎㅎㅎ 난이도도있고 이거 한번 펴주면 꽤 오래 잘 노네요 ㅎㅎ 제가가진 노즈워크 장남감중 일단 제일이뻐요 ㅎㅎㅎㅎ!! ㅎㅎ</span>
+                                                    <span>ㅎ할인할때 잘 산거같아요~</span>
+                                                </div>
+                                            </div>
+                                            <div class="detail__reviews_info-third">
+                                                <button>
+                                                    <i class="fa-solid fa-thumbs-up" style="color: #8d8d8d;"></i>
+                                                    <span>도움이 됐어요 0</span>
+                                                </button>
+                                                <p class="grey">신고하기</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="detail__reviews-item">
+                                    <div class="detail__reviews-profile">
+                                        <div class="detail__reviews-info">
+                                            <div class="detail__reviews-info-flex">
+                                                <div class="detail__reviews-imgbox">
+                                                    <img src="./img/review-profile3.jpg" alt="">
+                                                </div>
+                                                <div class="detail__reviews_info-first grey">
+                                                    <div class="detail__reviews_info_first-flex">
+                                                        <div>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                            <i class="fa-solid fa-star" style="color: #ffc014;"></i>
+                                                        </div>
+                                                        <span>구매인증됨</span>
+                                                        <span> | </span>
+                                                        <span>2023.07.10</span>
+                                                    </div>
+                                                    <div class="detail__reviews_info_first-flex grey">
+                                                        <span>김*진</span>
+                                                        <span>·</span>
+                                                        <span>말티즈</span>
+                                                        <span>·</span>
+                                                        <span>4살</span>
+                                                        <span>·</span>
+                                                        <span>4.3kg</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="detail__reviews_info-second">
+                                                <div class="detail__reviews_info_second-imgBox">
+                                                    <button>
+                                                        <img class="inherit" src="./img/detail__review-photos3.jpg" alt="">
+                                                    </button>
+                                                </div>
+                                                <div class="detail__reviews_info_second-text">
+                                                    <span>좋습니다.</span>
+                                                    <span>다른것에 비해 난이도가 더 높아서 만족합니다.</span>
+                                                </div>
+                                            </div>
+                                            <div class="detail__reviews_info-third">
+                                                <button>
+                                                    <i class="fa-solid fa-thumbs-up" style="color: #8d8d8d;"></i>
+                                                    <span>도움이 됐어요 0</span>
+                                                </button>
+                                                <p class="grey">신고하기</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail__qna">
+                        <div class="detail__title">
+                            <h1>취소/교환/반품 안내</h1>
+                            <button><span>더 보기 ></span></button>
+                        </div>
+                        <div class="detail__cs-wrap">
+                            <div class="detail__cs-text">
+                                <h4 class="normal">취소</h4>
+                                <li>입금하신 상품은 '입금대기, 입금완료'단계에서만 취소가 가능합니다.</li>
+                            </div>
+                            <div>
+                                <button class="btn-none">
+                                    <i class="fa-solid fa-chevron-right fa-xl" style="color: #7d8aa1;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="detail__related-wrap relative">
+                            <div class="detail__related_title">
+                                <h1>이 상품을 구매한 고객의 다른 구매 상품</h1>
+                            </div>
+                            <div class="section__arrow-wrap">
+                                <button class="section__arrow-item">
+                                    <i class="fa-solid fa-chevron-left fa-xl"></i>
+                                </button>
+                                <button class="section__arrow-item">
+                                    <i class="fa-solid fa-chevron-right fa-xl"></i>
+                                </button>
+                            </div>
+                            <div class="related__wrap section-wrap">
+                                <div class="related__item item">
+                                    <a href="#">
+                                        <div class="related__img-wrap img-wrap">
+                                            <img class="related__img img" src="" alt="">
+                                        </div>
+                                        <div class="related__text flex_col_start">
+                                            <p class="related__text-title text-title"></p>
+                                            <p class="related__text-origin text-origin"></p>
+                                            <div>
+                                                <span class="related__text-sale text-sale"></span>
+                                                <span class="related__text-price text-price"></span>
+                                            </div>
+                                            <div class="flex-row">
+                                                <span class="related__text-star text-star"></span>
+                                                <span class="related__text-reviews text-reviews"></span>
+                                            </div>
+                                            <span class="related__text-special text-special"></span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="related__item item">
+                                    <a href="#">
+                                        <div class="related__img-wrap img-wrap">
+                                            <img class="related__img img" src="" alt="">
+                                        </div>
+                                        <div class="related__text flex_col_start">
+                                            <p class="related__text-title text-title"></p>
+                                            <p class="related__text-origin text-origin"></p>
+                                            <div>
+                                                <span class="related__text-sale text-sale"></span>
+                                                <span class="related__text-price text-price"></span>
+                                            </div>
+                                            <div class="flex-row">
+                                                <span class="related__text-star text-star"></span>
+                                                <span class="related__text-reviews text-reviews"></span>
+                                            </div>
+                                            <span class="related__text-special text-special"></span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="related__item item">
+                                    <a href="#">
+                                        <div class="related__img-wrap img-wrap">
+                                            <img class="related__img img" src="" alt="">
+                                        </div>
+                                        <div class="related__text flex_col_start">
+                                            <p class="related__text-title text-title"></p>
+                                            <p class="related__text-origin text-origin"></p>
+                                            <div>
+                                                <span class="related__text-sale text-sale"></span>
+                                                <span class="related__text-price text-price"></span>
+                                            </div>
+                                            <div class="flex-row">
+                                                <span class="related__text-star text-star"></span>
+                                                <span class="related__text-reviews text-reviews"></span>
+                                            </div>
+                                            <span class="related__text-special text-special"></span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="related__item item">
+                                    <a href="#">
+                                        <div class="related__img-wrap img-wrap">
+                                            <img class="related__img img" src="" alt="">
+                                        </div>
+                                        <div class="related__text flex_col_start">
+                                            <p class="related__text-title text-title"></p>
+                                            <p class="related__text-origin text-origin"></p>
+                                            <div>
+                                                <span class="related__text-sale text-sale"></span>
+                                                <span class="related__text-price text-price"></span>
+                                            </div>
+                                            <div class="flex-row">
+                                                <span class="related__text-star text-star"></span>
+                                                <span class="related__text-reviews text-reviews"></span>
+                                            </div>
+                                            <span class="related__text-special text-special"></span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <footer>
+                <div class="banner_footer">
+                    <div class="promise">
+                        <div class="container">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                    <img
+                                        src="https://dogpre.com/images/dogpre/7-value.svg"
+                                        alt=""
+                                    />
+                                    </a>
+                                </li>
+                                <hr class="hr-col"/>
+                                <li>
+                                    <a href="#">
+                                    <img src="https://dogpre.com/images/responsible.svg" alt="" />
+                                    </a>
+                                </li>
+                                <hr class="hr-col"/>
+                                <li>
+                                    <a href="#">
+                                    <img src="https://dogpre.com/images/preDelivery.svg" alt="" />
+                                    </a>
+                                </li>
+                                <hr class="hr-col"/>
+                                <li>
+                                    <a href="#">
+                                    <img src="https://dogpre.com/images/free.svg" alt="" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="intro">
+                        <div>
+                            <img src="./img/logo.PNG" alt="logo" />
+                        </div>
+                        <div class="footer__txt-wrap">
+                            <div class="footer__txt-grey footer__txt-item" >
+                                <a href="#">
+                                    <span class="footer__txt-grey">회사소개</span>
+                                </a>
+                                <span>|</span>
+                                <a href="#">
+                                    <span class="footer__txt-grey" style="color: #000000;">개인정보처리방침</span>
+                                </a>
+                                <span>|</span>
+                                <a href="#">
+                                    <span class="footer__txt-grey">이용약관</span>
+                                </a>
+                                <span>|</span>
+                                <a href="#">
+                                    <span class="footer__txt-grey">제휴 입점 및 문의</span>
+                                </a>
+                                <span>|</span>
+                                <a href="#">
+                                    <span class="footer__txt-grey">사업자 정보</span>
+                                </a>
+                            </div>
+                            <div class="footer__txt-second">
+                                <div class="footer__txt-item">
+                                    <span class="footer__txt-black">대표자</span>
+                                    <span class="footer__txt-num">김도성</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-black">사업자등록번호</span>
+                                    <span class="footer__txt-num">127-86-32494</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-black">주소</span>
+                                    <span class="footer__txt-num">서울특별시 강남구 삼성로 570 석천빌딩 지하 1층</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-black">구매안전(에스크로)서비스</span>
+                                </div>
+                                <div class="footer__txt-item">
+                                    <span class="footer__txt-black">통신판매업</span>
+                                    <span class="footer__txt-num">제 2013-서울강남-01570호</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-num">개인정보보호책임자</span>
+                                    <span class="footer__txt-grey">최온섭</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-black">팩스</span>
+                                    <span class="footer__txt-num">02-585-8477</span>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="footer__txt-num">Tel. 1588-2469</span>
+                                <a href="#"><span class="footer__txt-num">Email. webmaster@funnc.com</span></a>
+                            </div>
+                        </div>
+                        <div class="footer__title-section" style="margin: 0 auto 20px 0;">
+                            <div class="button__cs">
+                                <button>채팅문의</button>
+                            </div>
+                        <div>
+                            <div class="sns">
+                                <a href=""><img src="./img/fb.png" alt="facebook" /></a>
+                            </div>
+                            <div class="sns">
+                                <a href=""><img src="./img/insta.png" alt="instagram" /></a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="support">
+                        <hr />
+                        <ul>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-2-logo.jpg"
+                                        alt="세스코"
+                                    />
+                                </picture>
+                            </li>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-3-logo.jpg"
+                                        alt="공정거래위원회"
+                                    />
+                                </picture>
+                            </li>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-4-logo.jpg"
+                                        alt="소비자원"
+                                    />
+                                </picture>
+                            </li>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-5-logo.jpg"
+                                        alt="코모도"
+                                    />
+                                </picture>
+                            </li>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-6-logo.jpg"
+                                        alt="서울보증"
+                                    />
+                                </picture>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="service">
+                    <span
+                        >기업은행 채무지급보증 안내 당사는 고객님이 현금 결제한 금액에 대해
+                        기업은행과 채무지급보증 계약을 체결하여 안전거래를 보장하고
+                        있습니다.
+                    </span>
+                    <span>
+                        <a href="#"> 서비스 가입 사실 확인 </a>
+                    </span>
+                </div> -->
+            </footer>
+        </div>
+    </body>
+</html>

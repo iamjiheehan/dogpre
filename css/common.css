@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+p {
+    font-size: 13px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 26px;
+}
+
+i {
+    letter-spacing: -3px;
+}
+
+.inherit {
+    width: inherit;
+    height: inherit;
+}
+
+.pink {
+    color: #FF425C;
+}
+
+.grey {
+    color:#8d8d8d;
+}
+
+.darkgrey {
+    color: #454545;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.normal {
+    font-weight: normal;
+}
+
+.btn-none {
+    background : none;
+    border: none;
+}
+
+.btn-none:hover{
+    transform: none;
+}
+
+
+/* .text-free::after{
+    background-color: #e7577be0;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    display: inline-block;
+    content: "무료배송";
+    color: #787878;
+    background-color: #F6F6F6;
+}
+
+.text-special::after{
+    background-color: #e7577be0;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    display: inline-block;
+    content: "특가";
+}
+
+
+.text-due::after{
+    background-color: #ECF9F5;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    display: inline-block;
+    content: "유통기한 책임제";
+    color: #40A97D;
+} */
+
+.hr-small {
+    color: #ebebeb;
+    border-width: 0 0 0 1px;
+}
+
+.hr-col {
+    color: #ebebeb;
+    border-width: 0px 1px 0px 0px;
+    height: 55px;
+}
+
+.container {
+    width: 1168px;
+    margin: 0 auto;
+}
+
+
+.relative {
+    position: relative;
+}
+
+
+
+
+.section__arrow-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 1250px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.section__arrow-item {
+    width: 48px;
+    border: 1px solid #e3e3e3;
+    height: 48px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.section__arrow-wrap button:hover {
+    transform: none;
+    background-color: #007aff;
+    color: white;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+}
+
+.flex_row_start {
+    display: flex;
+    align-items: center;
+}
+
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex_col_start {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-top: 12px;
+}
+
+/* -------------------------------------------- header 시작-------------------------------------------- */
+
+
+header {
+    padding: 10px 0;
+}
+
+.header__logo {
+    width: 180px;
+    float: left;
+}
+
+.header__logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.header__wrap {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__icons {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.header__search {
+    position: relative;
+    width: 100%;
+    border: none;
+}
+
+.header__search-input {
+    background-color: #f0f0f0;
+    width: 518px;
+    height: 46px;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 20px;
+    font-size: 15px;
+    margin-left: 35px;
+}
+
+.header__search-btn {
+    right: 0;
+    top: 0;
+    padding: 8px 10px;
+    position: absolute;
+    border: none;
+    background: none;
+}
+
+.header__search-btn:hover {
+    transform: none;
+}
+
+.header__search-icon path {
+    fill: #ff425c;
+}
+
+
+
+
+.navBar {
+    margin: 0 auto;
+    display: flex;
+    padding: 0 16px;
+    line-height: 1;
+    color: rgba(60, 60, 67, 0.6);
+    height: 36px;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+    background-color: #f4f4f5;
+    align-items: center;
+}
+
+.navBar span {
+    font-size: 13px;
+}
+
+.nav__home {
+    font-size: 15px;
+    color: rgba(60, 60, 67, 0.6);
+}
+
+
+/* -------------------------------------------- header 끝 -------------------------------------------- */
+
+/* -------------------------------------------- footer 시작-------------------------------------------- */
+
+
+
+.footer__title-section {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+}
+
+
+.footer__txt-second {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer__txt-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer__txt-grey {
+    color: #a1a1a1;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.footer__txt-black {
+    color: #646464;
+    font-size: 11px;
+}
+
+.footer__txt-num {
+    color: #a1a1a1;
+    font-size: 11px;
+    font-weight: 100;
+}
+
+.footer__txt-item {
+    display: flex;
+    gap: 10px;
+}
+
+/* -------------------------------------------- footer 끝 --------------------------------------------*/

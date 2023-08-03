@@ -1,0 +1,2486 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>강아지를 사랑하는 강아지 대통령</title>
+        <link href="css/main.css" rel="stylesheet" />
+        <link href="css/common.css" rel="stylesheet" />
+        <link rel="icon" href="./img/favicon.png" type="image/x-icon">
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+        <!-- <script src="./js/main.js"></script> -->
+        <!-- 핫딜 -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Function to fetch the JSON data from the file
+                function fetchJSONData(url, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var data = JSON.parse(xhr.responseText);
+                            callback(data);
+                        }
+                    };
+                    xhr.open("GET", url, true);
+                    xhr.send();
+                }
+
+                // Function to update the HTML with product information
+                function updateProductInfo(data) {
+                    var hotdealItems = document.querySelectorAll(".hotdeal__item");
+
+                    // Loop through each item in the JSON data and update the corresponding elements
+                    data.forEach(function (item, index) {
+                        var hotdealItem = hotdealItems[index]; // Get the current .hotdeal__item element
+
+                        var hotdealImg = hotdealItem.querySelector(".hotdeal__img");
+                        var hotdealTextDelivery = hotdealItem.querySelector(".hotdeal__text-delivery");
+                        var hotdealTextTitleLink = hotdealItem.querySelector(".hotdeal__text-title");
+                        var hotdealTextSale = hotdealItem.querySelector(".hotdeal__text-sale");
+                        var hotdealTextOrigin = hotdealItem.querySelector(".hotdeal__text-origin");
+                        var hotdealTextPrice = hotdealItem.querySelector(".hotdeal__text-price");
+                        var hotdealTextStarLink = hotdealItem.querySelector(".hotdeal__text-star");
+                        var hotdealTextReview = hotdealItem.querySelector(".hotdeal__text-reviews");
+                        var hotdealTextSpecial = hotdealItem.querySelector(".hotdeal__text-special");
+
+                        // Update the content of the selected elements with the data from the JSON file
+                        hotdealImg.src = item.url;
+                        hotdealImg.alt = item.title;
+                        hotdealTextDelivery.textContent = item.delivery;
+                        hotdealTextTitleLink.textContent = item.title;
+                        hotdealTextSale.textContent = item.sale;
+                        hotdealTextOrigin.textContent = item.original;
+                        hotdealTextPrice.textContent = item.price;
+                        hotdealTextStarLink.textContent = "⭐".repeat(parseInt(item.score));
+                        hotdealTextReview.textContent = item.reviews;
+                        hotdealTextSpecial.textContent = item.special;
+                    });
+                }
+                // Fetch the JSON data and update the HTML with product information
+                fetchJSONData("./json/hotdeal.json", updateProductInfo);
+            });
+        </script>
+        <!-- 후기 1,000개 돌파상품 -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Function to fetch the JSON data from the file
+                function fetchJSONData(url, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var data = JSON.parse(xhr.responseText);
+                            callback(data);
+                        }
+                    };
+                    xhr.open("GET", url, true);
+                    xhr.send();
+                }
+
+                // Function to update the HTML with product information
+                function updateProductInfo(data) {
+                    var popItems = document.querySelectorAll(".pop__item");
+
+                    // Loop through each item in the JSON data and update the corresponding elements
+                    data.forEach(function (item, index) {
+                        var popItem = popItems[index]; // Get the current .pop__item element
+
+                        var popImg = popItem.querySelector(".pop__img");
+                        var popTextDelivery = popItem.querySelector(".pop__text-delivery");
+                        var popTextTitleLink = popItem.querySelector(".pop__text-title");
+                        var popTextSale = popItem.querySelector(".pop__text-sale");
+                        var popTextOrigin = popItem.querySelector(".pop__text-origin");
+                        var popTextPrice = popItem.querySelector(".pop__text-price");
+                        var popTextStarLink = popItem.querySelector(".pop__text-star");
+                        var popTextReview = popItem.querySelector(".pop__text-reviews");
+                        var popTextSpecial = popItem.querySelector(".pop__text-special");
+
+                        // Update the content of the selected elements with the data from the JSON file
+                        popImg.src = item.url;
+                        popImg.alt = item.title;
+                        popTextDelivery.textContent = item.delivery;
+                        popTextTitleLink.textContent = item.title;
+                        popTextSale.textContent = item.sale;
+                        popTextOrigin.textContent = item.original;
+                        popTextPrice.textContent = item.price;
+                        popTextStarLink.textContent = "⭐".repeat(parseInt(item.score));
+                        popTextReview.textContent = item.reviews;
+                        popTextSpecial.textContent = item.special;
+                    });
+                }
+                // Fetch the JSON data and update the HTML with product information
+                fetchJSONData("./json/reviews.json", updateProductInfo);
+            });
+        </script>
+        <!-- 스마트한 반려생활, 펫가전 추천템 -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Function to fetch the JSON data from the file
+                function fetchJSONData(url, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var data = JSON.parse(xhr.responseText);
+                            callback(data);
+                        }
+                    };
+                    xhr.open("GET", url, true);
+                    xhr.send();
+                }
+
+                // Function to update the HTML with product information
+                function updateProductInfo(data) {
+                    var smartItems = document.querySelectorAll(".smart__item");
+
+                    // Loop through each item in the JSON data and update the corresponding elements
+                    data.forEach(function (item, index) {
+                        var smartItem = smartItems[index]; // Get the current .pop__item element
+
+                        var smartImg = smartItem.querySelector(".smart__img");
+                        var smartTextDelivery = smartItem.querySelector(".smart__text-delivery");
+                        var smartTextTitleLink = smartItem.querySelector(".smart__text-title");
+                        var smartTextSale = smartItem.querySelector(".smart__text-sale");
+                        var smartTextOrigin = smartItem.querySelector(".smart__text-origin");
+                        var smartTextPrice = smartItem.querySelector(".smart__text-price");
+                        var smartTextStarLink = smartItem.querySelector(".smart__text-star");
+                        var smartTextReview = smartItem.querySelector(".smart__text-reviews");
+                        var smartTextSpecial = smartItem.querySelector(".smart__text-special");
+
+                        // Update the content of the selected elements with the data from the JSON file
+                        smartImg.src = item.url;
+                        smartImg.alt = item.title;
+                        smartTextDelivery.textContent = item.delivery;
+                        smartTextTitleLink.textContent = item.title;
+                        smartTextSale.textContent = item.sale;
+                        smartTextOrigin.textContent = item.original;
+                        smartTextPrice.textContent = item.price;
+                        smartTextStarLink.textContent = "⭐".repeat(parseInt(item.score));
+                        smartTextReview.textContent = item.reviews;
+                        smartTextSpecial.textContent = item.special;
+                    });
+                }
+                // Fetch the JSON data and update the HTML with product information
+                fetchJSONData("./json/smartTool.json", updateProductInfo);
+            });
+        </script>
+        <!-- 한그릇으로 끝내는 완벽한 식사 -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                function fetchJSONData(url, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var data = JSON.parse(xhr.responseText);
+                            callback(data);
+                        }
+                    };
+                    xhr.open("GET", url, true);
+                    xhr.send();
+                }
+
+                function updateProductInfo(data) {
+                    var mealItems = document.querySelectorAll(".meal__item");
+
+                    data.forEach(function (item, index) {
+                        var mealItem = mealItems[index]; 
+
+                        var mealImg = mealItem.querySelector(".meal__img");
+                        var mealTextDelivery = mealItem.querySelector(".meal__text-delivery");
+                        var mealTextTitleLink = mealItem.querySelector(".meal__text-title");
+                        var mealTextSale = mealItem.querySelector(".meal__text-sale");
+                        var mealTextOrigin = mealItem.querySelector(".meal__text-origin");
+                        var mealTextPrice = mealItem.querySelector(".meal__text-price");
+                        var mealTextStarLink = mealItem.querySelector(".meal__text-star");
+                        var mealTextReview = mealItem.querySelector(".meal__text-reviews");
+                        var mealTextSpecial = mealItem.querySelector(".meal__text-special");
+
+                        mealImg.src = item.url;
+                        mealImg.alt = item.title;
+                        mealTextDelivery.textContent = item.delivery;
+                        mealTextTitleLink.textContent = item.title;
+                        mealTextSale.textContent = item.sale;
+                        mealTextOrigin.textContent = item.original;
+                        mealTextPrice.textContent = item.price;
+                        mealTextStarLink.textContent = "⭐".repeat(parseInt(item.score));
+                        mealTextReview.textContent = item.reviews;
+                        mealTextSpecial.textContent = item.special;
+                    });
+                }
+                fetchJSONData("./json/meal.json", updateProductInfo);
+            });
+        </script>
+        <!-- 네츄럴코어 간식, 아직도 안먹어봤니? -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                function fetchJSONData(url, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var data = JSON.parse(xhr.responseText);
+                            callback(data);
+                        }
+                    };
+                    xhr.open("GET", url, true);
+                    xhr.send();
+                }
+
+                function updateProductInfo(data) {
+                    var naturalItems = document.querySelectorAll(".natural__item");
+
+                    data.forEach(function (item, index) {
+                        var naturalItem = naturalItems[index]; 
+
+                        var naturalImg = naturalItem.querySelector(".natural__img");
+                        var naturalTextDelivery = naturalItem.querySelector(".natural__text-delivery");
+                        var naturalTextTitleLink = naturalItem.querySelector(".natural__text-title");
+                        var naturalTextSale = naturalItem.querySelector(".natural__text-sale");
+                        var naturalTextOrigin = naturalItem.querySelector(".natural__text-origin");
+                        var naturalTextPrice = naturalItem.querySelector(".natural__text-price");
+                        var naturalTextStarLink = naturalItem.querySelector(".natural__text-star");
+                        var naturalTextReview = naturalItem.querySelector(".natural__text-reviews");
+                        var naturalTextSpecial = naturalItem.querySelector(".natural__text-special");
+
+                        naturalImg.src = item.url;
+                        naturalImg.alt = item.title;
+                        naturalTextDelivery.textContent = item.delivery;
+                        naturalTextTitleLink.textContent = item.title;
+                        naturalTextSale.textContent = item.sale;
+                        naturalTextOrigin.textContent = item.original;
+                        naturalTextPrice.textContent = item.price;
+                        naturalTextStarLink.textContent = "⭐".repeat(parseInt(item.score));
+                        naturalTextReview.textContent = item.reviews;
+                        naturalTextSpecial.textContent = item.special;
+                    });
+                }
+                fetchJSONData("./json/natural.json", updateProductInfo);
+            });
+
+
+        </script>
+        <!-- 귀여움이 2배! 귀염뽀짝 장난감 모음 -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                function fetchJSONData(url, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var data = JSON.parse(xhr.responseText);
+                            callback(data);
+                        }
+                    };
+                    xhr.open("GET", url, true);
+                    xhr.send();
+                }
+
+                function updateProductInfo(data) {
+                    var toyItems = document.querySelectorAll(".toy__item");
+
+                    data.forEach(function (item, index) {
+                        var toyItem = toyItems[index]; 
+
+                        var toyImg = toyItem.querySelector(".toy__img");
+                        var toyTextDelivery = toyItem.querySelector(".toy__text-delivery");
+                        var toyTextTitleLink = toyItem.querySelector(".toy__text-title");
+                        var toyTextSale = toyItem.querySelector(".toy__text-sale");
+                        var toyTextOrigin = toyItem.querySelector(".toy__text-origin");
+                        var toyTextPrice = toyItem.querySelector(".toy__text-price");
+                        var toyTextStarLink = toyItem.querySelector(".toy__text-star");
+                        var toyTextReview = toyItem.querySelector(".toy__text-reviews");
+
+                        toyImg.src = item.url;
+                        toyImg.alt = item.title;
+                        toyTextDelivery.textContent = item.delivery;
+                        toyTextTitleLink.textContent = item.title;
+                        toyTextSale.textContent = item.sale;
+                        toyTextOrigin.textContent = item.original;
+                        toyTextPrice.textContent = item.price;
+                        toyTextStarLink.textContent = "⭐".repeat(parseInt(item.score));
+                        toyTextReview.textContent = item.reviews;
+                    });
+                }
+                fetchJSONData("./json/toy.json", updateProductInfo);
+            });
+        </script>
+        <!-- 여름에도 바삭하게 동결건조 모음! -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                function fetchJSONData(url, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var data = JSON.parse(xhr.responseText);
+                            callback(data);
+                        }
+                    };
+                    xhr.open("GET", url, true);
+                    xhr.send();
+                }
+
+                function updateProductInfo(data) {
+                    var jerkyItems = document.querySelectorAll(".jerky__item");
+
+                    data.forEach(function (item, index) {
+                        var jerkyItem = jerkyItems[index]; 
+
+                        var jerkyImg = jerkyItem.querySelector(".jerky__img");
+                        var jerkyTextDelivery = jerkyItem.querySelector(".jerky__text-delivery");
+                        var jerkyTextTitleLink = jerkyItem.querySelector(".jerky__text-title");
+                        var jerkyTextSale = jerkyItem.querySelector(".jerky__text-sale");
+                        var jerkyTextOrigin = jerkyItem.querySelector(".jerky__text-origin");
+                        var jerkyTextPrice = jerkyItem.querySelector(".jerky__text-price");
+                        var jerkyTextStarLink = jerkyItem.querySelector(".jerky__text-star");
+                        var jerkyTextReview = jerkyItem.querySelector(".jerky__text-reviews");
+                        var jerkyTextSpecial = jerkyItem.querySelector(".jerky__text-special");
+
+                        jerkyImg.src = item.url;
+                        jerkyImg.alt = item.title;
+                        jerkyTextDelivery.textContent = item.delivery;
+                        jerkyTextTitleLink.textContent = item.title;
+                        jerkyTextSale.textContent = item.sale;
+                        jerkyTextOrigin.textContent = item.original;
+                        jerkyTextPrice.textContent = item.price;
+                        jerkyTextStarLink.textContent = "⭐".repeat(parseInt(item.score));
+                        jerkyTextReview.textContent = item.reviews;
+                        jerkyTextSpecial.textContent = item.special;
+                    });
+                }
+                fetchJSONData("./json/jerky.json", updateProductInfo);
+            });
+        </script>
+        <!-- 짧지만 강력한! 최대 79%할인 -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                function fetchJSONData(url, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var data = JSON.parse(xhr.responseText);
+                            callback(data);
+                        }
+                    };
+                    xhr.open("GET", url, true);
+                    xhr.send();
+                }
+
+                function updateProductInfo(data) {
+                    var saleItems = document.querySelectorAll(".sale__item");
+
+                    data.forEach(function (item, index) {
+                        var saleItem = saleItems[index]; 
+
+                        var saleImg = saleItem.querySelector(".sale__img");
+                        var saleTextDelivery = saleItem.querySelector(".sale__text-delivery");
+                        var saleTextTitleLink = saleItem.querySelector(".sale__text-title");
+                        var saleTextSale = saleItem.querySelector(".sale__text-sale");
+                        var saleTextOrigin = saleItem.querySelector(".sale__text-origin");
+                        var saleTextPrice = saleItem.querySelector(".sale__text-price");
+                        var saleTextStarLink = saleItem.querySelector(".sale__text-star");
+                        var saleTextReview = saleItem.querySelector(".sale__text-reviews");
+                        var saleTextSpecial = saleItem.querySelector(".sale__text-special");
+
+                        saleImg.src = item.url;
+                        saleImg.alt = item.title;
+                        saleTextDelivery.textContent = item.delivery;
+                        saleTextTitleLink.textContent = item.title;
+                        saleTextSale.textContent = item.sale;
+                        saleTextOrigin.textContent = item.original;
+                        saleTextPrice.textContent = item.price;
+                        saleTextStarLink.textContent = "⭐".repeat(parseInt(item.score));
+                        saleTextReview.textContent = item.reviews;
+                        saleTextSpecial.textContent = item.special;
+                    });
+                }
+                fetchJSONData("./json/sale.json", updateProductInfo);
+            });
+        </script>
+        <!-- 이 상품 어때요? -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                function fetchJSONData(url, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var data = JSON.parse(xhr.responseText);
+                            callback(data);
+                        }
+                    };
+                    xhr.open("GET", url, true);
+                    xhr.send();
+                }
+
+                function updateProductInfo(data) {
+                    var suggestionItems = document.querySelectorAll(".suggestion__item");
+
+                    data.forEach(function (item, index) {
+                        var suggestionItem = suggestionItems[index]; 
+
+                        var suggestionImg = suggestionItem.querySelector(".suggestion__img");
+                        var suggestionTextDelivery = suggestionItem.querySelector(".suggestion__text-delivery");
+                        var suggestionTextTitleLink = suggestionItem.querySelector(".suggestion__text-title");
+                        var suggestionTextSale = suggestionItem.querySelector(".suggestion__text-sale");
+                        var suggestionTextOrigin = suggestionItem.querySelector(".suggestion__text-origin");
+                        var suggestionTextPrice = suggestionItem.querySelector(".suggestion__text-price");
+                        var suggestionTextStarLink = suggestionItem.querySelector(".suggestion__text-star");
+                        var suggestionTextReview = suggestionItem.querySelector(".suggestion__text-reviews");
+                        var suggestionTextSpecial = suggestionItem.querySelector(".suggestion__text-special");
+
+
+                        suggestionImg.src = item.url;
+                        suggestionImg.alt = item.title;
+                        suggestionTextDelivery.textContent = item.delivery;
+                        suggestionTextTitleLink.textContent = item.title;
+                        suggestionTextSale.textContent = item.sale;
+                        suggestionTextOrigin.textContent = item.original;
+                        suggestionTextPrice.textContent = item.price;
+                        suggestionTextStarLink.textContent = "⭐".repeat(parseInt(item.score));
+                        suggestionTextReview.textContent = item.reviews;
+                        suggestionTextSpecial.textContent = item.special;
+
+                    });
+                }
+                fetchJSONData("./json/suggestion.json", updateProductInfo);
+            });
+        </script>
+        <!-- 강대 랭킹 -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                function fetchJSONData(url, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            var data = JSON.parse(xhr.responseText);
+                            callback(data);
+                        }
+                    };
+                    xhr.open("GET", url, true);
+                    xhr.send();
+                }
+
+                function updateProductInfo(data) {
+                    var rankingItems = document.querySelectorAll(".ranking__item");
+
+                    data.forEach(function (item, index) {
+                        var rankingItem = rankingItems[index]; 
+
+                        var rankingImg = rankingItem.querySelector(".ranking__item-img");
+                        var rankingRank = rankingItem.querySelector(".ranking__item-num");
+                        var rankingTextTitleLink = rankingItem.querySelector(".ranking__item-title");
+                        var rankingTextSale = rankingItem.querySelector(".ranking__item-sale");
+                        var rankingTextOrigin = rankingItem.querySelector(".ranking__item-origin");
+                        var rankingTextPrice = rankingItem.querySelector(".ranking__item-price");
+                        var rankingTextStarLink = rankingItem.querySelector(".ranking__item-stars");
+                        var rankingTextReview = rankingItem.querySelector(".ranking__item-reviwes");
+
+                        rankingImg.src = item.url;
+                        rankingImg.alt = item.title;
+                        rankingRank.textContent = item.ranking;
+                        rankingTextTitleLink.textContent = item.title;
+                        rankingTextSale.textContent = item.sale;
+                        rankingTextOrigin.textContent = item.original;
+                        rankingTextPrice.textContent = item.price;
+                        rankingTextStarLink.textContent = "⭐".repeat(parseInt(item.score));
+                        rankingTextReview.textContent = item.reviews;
+                    });
+                }
+                fetchJSONData("./json/ranking.json", updateProductInfo);
+            });
+        </script>
+    </head>
+    <body>
+        <div class="wrap">
+            <nav>
+                <div class="container">
+                    <header>
+                        <div class="header__logo">
+                            <a href=“detail.html”  target=“_self”>
+                                <img src="./img/main_logo.PNG" alt="">
+                            </a>
+                        </div>
+                        <div class="header__wrap">
+                            <form>
+                                <div class="header__search">
+                                    <input class="header__search-input" type="text" placeholder="3만원 이상 무료배송" />
+                                    <button class="header__search-btn">
+                                        <span>
+                                            <svg width="27" height="auto" viewBox="0 0 24 24" class="header__search-icon" src="./img/search.svg" alt="search" role="img">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8353 4.4502C7.30892 4.4502 4.4502 7.30892 4.4502 10.8353C4.4502 14.3617 7.30892 17.2205 10.8353 17.2205C11.6199 17.2205 12.3699 17.0793 13.0622 16.8216C13.4504 16.6771 13.8822 16.8747 14.0267 17.2629C14.1712 17.6511 13.9736 18.0829 13.5854 18.2274C12.7282 18.5465 11.8012 18.7205 10.8353 18.7205C6.48049 18.7205 2.9502 15.1902 2.9502 10.8353C2.9502 6.48049 6.48049 2.9502 10.8353 2.9502C15.1902 2.9502 18.7205 6.48049 18.7205 10.8353C18.7205 12.742 18.0428 14.4922 16.9162 15.8555L20.7305 19.6699C21.0234 19.9628 21.0234 20.4376 20.7305 20.7305C20.4376 21.0234 19.9628 21.0234 19.6699 20.7305L15.7039 16.7645C15.207 16.2677 15.2378 15.5034 15.6556 15.0229C16.6308 13.9014 17.2205 12.4382 17.2205 10.8353C17.2205 7.30892 14.3617 4.4502 10.8353 4.4502Z"></path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
+                            <div class="header__icons">
+                                <a href=“detail.html”  target=“_self”>
+                                    <i class="fa-regular fa-bell fa-xl" style="color: #000000"></i>
+                                </a>
+                                <a href=“detail.html”  target=“_self”>
+                                    <i class="fa-regular fa-user fa-xl" style="color: #000000"></i>
+                                </a>
+                                <a href=“detail.html”  target=“_self”>
+                                    <i class="fa-solid fa-cart-plus fa-xl" style="color: #000000"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </header>
+                    <section class="category relative">
+                        <div class="category-first-ul">
+                            <ul>
+                                <li class="category__item relative">
+                                    <a href=“detail.html”  target=“_self”>
+                                        <span class="category__item-mark"></span>
+                                        <span class="category__item-txt">사료</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href=“detail.html”  target=“_self”>
+                                        <span class="category__item-txt">간식</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href=“detail.html”  target=“_self”>
+                                        <span class="category__item-txt">건강관리</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href=“detail.html”  target=“_self”>
+                                        <span class="category__item-txt">위생/배변</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href=“detail.html”  target=“_self”>
+                                        <span class="category__item-txt">미용/목욕</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href=“detail.html”  target=“_self”>
+                                        <span class="category__item-txt">급식기/급수기</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href=“detail.html”  target=“_self”>
+                                        <span class="category__item-txt">하우스/울타리</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href=“detail.html”  target=“_self”>
+                                        <span class="category__item-txt">이동장</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href=“detail.html”  target=“_self”>
+                                        <span class="category__item-txt">의류/악세서리</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href=“detail.html”  target=“_self”>
+                                        <span class="category__item-txt">목줄/인식표/리드줄</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href=“detail.html”  target=“_self”>
+                                        <span class="category__item-txt">장난감</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href=“detail.html”  target=“_self”>
+                                        <span class="category__item-txt">훈련</span>
+                                    </a>
+                                </li>
+                                <li class="category__item">
+                                    <a href=“detail.html”  target=“_self”>
+                                        <span class="category__item-txt">생활/가전</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="category-first">
+                            <div class="category-first-title">
+                                <i class="fa-solid fa-bars" style="color: #000000"></i>
+                                <a href=“detail.html”  target=“_self”><span>카테고리</span></a>
+                                
+                            </div>
+                            
+                            <div class="category-second">
+                                <a href="detail.html"  target="_self">
+                                    <span>핫딜</span>
+                                </a>
+                                <a href="detail.html"  target="_self">
+                                    <span>체험단</span>
+                                </a>
+                                <a href=“detail.html”  target=“_self”>
+                                    <span>랭킹</span>
+                                </a>
+                                <a href=“detail.html”  target=“_self”>
+                                    <span>신상품</span>
+                                </a>
+                                <a href=“detail.html”  target=“_self”>
+                                    <span>브랜드</span>
+                                </a>
+                                <a href=“detail.html”  target=“_self”>
+                                    <span>사료샘플</span>
+                                </a>
+                                <a href=“detail.html”  target=“_self”>
+                                    <span>이벤트</span>
+                                </a>
+                                <a href=“detail.html”  target=“_self”>
+                                    <span>스티커샵</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="category-btn">
+                            <a href=“detail.html”  target=“_self”><img src="https://funnc-static-images.s3.ap-northeast-2.amazonaws.com/common/gnb_banner_new.svg" alt="신선한 사료&간식 유통기한 책임제"></a>
+                        </div>
+                    </section>
+                </div>
+            </nav>
+            <section class="banner">
+                <div class="banner__arrow-wrap">
+                    <button class="banner__arrow-item"><i class="fa-solid fa-chevron-left" class="fa-solid fa-chevron-left fa-2xl" style="color: #ffffff;"></i></button>
+                    <button class="banner__arrow-item"><i class="fa-solid fa-chevron-right" class="fa-solid fa-chevron-right fa-2xl" style="color: #ffffff;"></i></button>
+                </div>
+                <div class="banner__icon-wrap">
+                    <span class="banner__icon-item">
+                        <img src="https://img.dogpre.com/common/dogpre/event/main_banner/_top1_app_202207221540431.png" alt="">
+                    </span>
+                    <span class="banner__icon-item"></span>
+                    <span class="banner__icon-item"></span>
+                    <span class="banner__icon-item"></span>
+                    <span class="banner__icon-item"></span>
+                    <span class="banner__icon-item"></span>
+                    <span class="banner__icon-item"></span>
+                    <span class="banner__icon-item"></span>
+                    <span class="banner__icon-item"></span>
+                    <span class="banner__icon-item"></span>
+                    <span class="banner__icon-item"></span>
+                    <span class="banner__icon-item"></span>
+                    <span class="banner__icon-item"></span>
+                </div>
+                <div class="banner__img-wrap">
+                    <img src="https://img.dogpre.com/web/dogpre/event/main_banner/sno_top1_back_202307271550241.png" alt="">
+                </div>
+            </section>
+            <div class="container">
+                <section class="icons">
+                    <div>
+                        <picture>
+                            <a href="#" class="icons__text" >
+                                <img
+                                src="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/b6035498-92c1-4d5d-bdfa-51fab0548786.svg"
+                                alt="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/b6035498-92c1-4d5d-bdfa-51fab0548786.svg"
+                                sizes="auto"
+                                />
+                                <p>핫딜</p>
+                            </a>
+                        </picture>
+                    </div>
+                    <div>
+                        <picture>
+                            <a href="#" class="icons__text" >
+                                <img
+                                    src="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/327c6c57-3874-46f5-8fd8-6cdae0f57a5a.svg"
+                                    alt="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/327c6c57-3874-46f5-8fd8-6cdae0f57a5a.svg"
+                                    sizes="auto"
+                                />
+                                <p>신상품</p>
+                            </a>
+                        </picture>
+                    </div>
+                    <div>
+                        <picture>
+                            <a href="#" class="icons__text" >
+                                <img
+                                    src="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/ad58e700-dd9c-4a40-971b-3da77655aa6a.png"
+                                    alt="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/ad58e700-dd9c-4a40-971b-3da77655aa6a.png"
+                                    sizes="auto"
+                                />
+                                <p>사료샘플</p>
+                            </a>
+                        </picture>
+                    </div>
+                    <div>
+                        <picture>
+                            <a href="#" class="icons__text" >
+                                <img
+                                src="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/2a0d1b44-f20c-4c27-91ab-2f208fd856ae.png"
+                                alt="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/2a0d1b44-f20c-4c27-91ab-2f208fd856ae.png"
+                                sizes="auto"
+                            />
+                            <p>랭킹</p>
+                            </a>
+                        </picture>
+                    </div>
+                    <div>
+                        <picture>
+                            <a href="#" class="icons__text" >
+                            <img
+                                src="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/c4c8a393-9d4a-4477-a30d-2a95b020af70.svg"
+                                alt="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/c4c8a393-9d4a-4477-a30d-2a95b020af70.svg"
+                                sizes="auto"
+                            />
+                            <p>쿠폰</p>
+                            </a>
+                        </picture>
+                    </div>
+                    <div>
+                        <picture>
+                            <a href="#" class="icons__text" >
+                            <img
+                                src="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/a29fd02e-6cff-43d1-b585-8b3d257b374a.svg"
+                                alt="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/a29fd02e-6cff-43d1-b585-8b3d257b374a.svg"
+                                sizes="auto"
+                            />
+                            <p>강대후기</p>
+                            </a>
+                        </picture>
+                    </div>
+                    <div>
+                        <picture>
+                            <a href="#" class="icons__text" >
+                                <img
+                                    src="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/913b1897-1b68-4a1f-9bed-04152d94ea82.png"
+                                    alt="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/913b1897-1b68-4a1f-9bed-04152d94ea82.png"
+                                    sizes="auto"
+                                />
+                                <p>친구추천</p>
+                            </a>
+                        </picture>
+                    </div>
+                    <div>
+                        <picture>
+                            <a href="#" class="icons__text" >
+                                <img
+                                    src="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/ab55a134-327e-4cf8-b0b9-3d09e41c28dd.png"
+                                    alt="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/ab55a134-327e-4cf8-b0b9-3d09e41c28dd.png"
+                                    sizes="auto"
+                                />
+                                <p>대용량 기획전</p>
+                            </a>
+                        </picture>
+                    </div>
+                    <div>
+                        <picture>
+                            <a href="#" class="icons__text" >
+                                <img
+                                    src="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/a835ecd0-6181-4020-9b25-c1086a6213bc.jpg"
+                                    alt="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/a835ecd0-6181-4020-9b25-c1086a6213bc.jpg"
+                                    sizes="auto"
+                                />
+                                <p>증정</p>
+                            </a>
+                        </picture>
+                    </div>
+                    <div>
+                        <picture>
+                            <a href="#" class="icons__text" >
+                                <img
+                                    src="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/4c3f20f6-735a-4bfa-9993-46565c4b3f94.png"
+                                    alt="https://retool-image-upload.s3.ap-northeast-2.amazonaws.com/category/4c3f20f6-735a-4bfa-9993-46565c4b3f94.png"
+                                    sizes="auto"
+                                />
+                                <p>특가템~62%</p>
+                        </a>
+                        </picture>
+                    </div>
+                </section>
+                <section class="banner__product banner-size"></section>
+            </div>
+            <section class="hotdeal relative">
+                <div class="container">
+                    <div class="title__section">
+                        <h1>핫딜</h1>
+                        <p><a href=“detail.html”  target=“_self”>더보기</a></p>
+                    </div>
+                </div>
+                <div class="section__arrow-wrap">
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-left fa-xl"></i>
+                    </button>
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-right fa-xl"></i>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="hotdeal__wrap section-wrap">
+                        <div class="hotdeal__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="hotdeal__img-wrap img-wrap">
+                                    <img class="hotdeal__img img" src="" alt="">
+                                </div>
+                                <div class="hotdeal__text flex_col_start">
+                                    <p class="hotdeal__text-delivery text-delivery"></p>
+                                    <p class="hotdeal__text-title text-title"></p>
+                                    <p class="hotdeal__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="hotdeal__text-sale text-sale"></span>
+                                        <span class="hotdeal__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="hotdeal__text-star text-star"></span>
+                                        <span class="hotdeal__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="hotdeal__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="hotdeal__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="hotdeal__img-wrap img-wrap">
+                                    <img class="hotdeal__img img" src="" alt="">
+                                </div>
+                                <div class="hotdeal__text flex_col_start">
+                                    <p class="hotdeal__text-delivery text-delivery"></p>
+                                    <p class="hotdeal__text-title text-title"></p>
+                                    <p class="hotdeal__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="hotdeal__text-sale text-sale"></span>
+                                        <span class="hotdeal__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="hotdeal__text-star text-star"></span>
+                                        <span class="hotdeal__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="hotdeal__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="hotdeal__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="hotdeal__img-wrap img-wrap">
+                                    <img class="hotdeal__img img" src="" alt="">
+                                </div>
+                                <div class="hotdeal__text flex_col_start">
+                                    <p class="hotdeal__text-delivery text-delivery"></p>
+                                    <p class="hotdeal__text-title text-title"></p>
+                                    <p class="hotdeal__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="hotdeal__text-sale text-sale"></span>
+                                        <span class="hotdeal__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="hotdeal__text-star text-star"></span>
+                                        <span class="hotdeal__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="hotdeal__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="hotdeal__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="hotdeal__img-wrap img-wrap">
+                                    <img class="hotdeal__img img" src="" alt="">
+                                </div>
+                                <div class="hotdeal__text flex_col_start">
+                                    <p class="hotdeal__text-delivery text-delivery"></p>
+                                    <p class="hotdeal__text-title text-title"></p>
+                                    <p class="hotdeal__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="hotdeal__text-sale text-sale"></span>
+                                        <span class="hotdeal__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="hotdeal__text-star text-star"></span>
+                                        <span class="hotdeal__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="hotdeal__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="suggestion relative">
+                <div class="container">
+                    <div class="title__section">
+                        <h1>이 상품 어때요?</h1>
+                        <p><a href=“detail.html”  target=“_self”>더보기</a></p>
+                    </div>
+                </div>
+                <div class="section__arrow-wrap">
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-left fa-xl"></i>
+                    </button>
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-right fa-xl"></i>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="suggestion__wrap section-wrap">
+                        <div class="suggestion__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="suggestion__img-wrap img-wrap">
+                                    <img class="suggestion__img img" src="" alt="">
+                                </div>
+                                <div class="suggestion__text flex_col_start">
+                                    <p class="suggestion__text-delivery text-delivery"></p>
+                                    <p class="suggestion__text-title text-title"></p>
+                                    <p class="suggestion__text-origin text-origin"></p>
+                                    <div>   
+                                        <span class="suggestion__text-sale text-sale"></span>
+                                        <span class="suggestion__text-price text-price"></span>
+                                    </div>  
+                                    <div>
+                                        <span class="suggestion__text-star text-star"></span>
+                                        <span class="suggestion__text-reviews text-reviews"></span>
+                                    </div>
+                                    <div>
+                                        <span class="suggestion__text-free text-free"></span>
+                                        <span class="suggestion__text-special text-special"></span>
+                                        <span class="suggestion__text-due text-due"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="suggestion__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="suggestion__img-wrap img-wrap">
+                                    <img class="suggestion__img img" src="" alt="">
+                                </div>
+                                <div class="suggestion__text flex_col_start">
+                                    <p class="suggestion__text-delivery text-delivery"></p>
+                                    <p class="suggestion__text-title text-title"></p>
+                                    <p class="suggestion__text-origin text-origin"></p>
+                                    <div>   
+                                        <span class="suggestion__text-sale text-sale"></span>
+                                        <span class="suggestion__text-price text-price"></span>
+                                    </div>  
+                                    <div>
+                                        <span class="suggestion__text-star text-star"></span>
+                                        <span class="suggestion__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="suggestion__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="suggestion__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="suggestion__img-wrap img-wrap">
+                                    <img class="suggestion__img img" src="" alt="">
+                                </div>
+                                <div class="suggestion__text flex_col_start">
+                                    <p class="suggestion__text-delivery text-delivery"></p>
+                                    <p class="suggestion__text-title text-title"></p>
+                                    <p class="suggestion__text-origin text-origin"></p>
+                                    <div>   
+                                        <span class="suggestion__text-sale text-sale"></span>
+                                        <span class="suggestion__text-price text-price"></span>
+                                    </div>  
+                                    <div>
+                                        <span class="suggestion__text-star text-star"></span>
+                                        <span class="suggestion__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="suggestion__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="suggestion__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="suggestion__img-wrap img-wrap">
+                                    <img class="suggestion__img img" src="" alt="">
+                                </div>
+                                <div class="suggestion__text flex_col_start">
+                                    <p class="suggestion__text-delivery text-delivery"></p>
+                                    <p class="suggestion__text-title text-title"></p>
+                                    <p class="suggestion__text-origin text-origin"></p>
+                                    <div>   
+                                        <span class="suggestion__text-sale text-sale"></span>
+                                        <span class="suggestion__text-price text-price"></span>
+                                    </div>  
+                                    <div>
+                                        <span class="suggestion__text-star text-star"></span>
+                                        <span class="suggestion__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="suggestion__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="container">
+                <section class="banner__inviting banner-size"></section>
+            </div>
+            <section class="sale relative">
+                <div class="container">
+                    <div class="title__section">
+                        <h1>짧지만 강력한! 최대 79%할인</h1>
+                        <p><a href=“detail.html”  target=“_self”>더보기</a></p>
+                    </div>
+                </div>
+                <div class="section__arrow-wrap">
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-left fa-xl"></i>
+                    </button>
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-right fa-xl"></i>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="sale__wrap section-wrap">
+                        <div class="sale__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="sale__img-wrap img-wrap">
+                                    <img class="sale__img img" src="" alt="">
+                                </div>
+                                <div class="sale__text flex_col_start">
+                                    <p class="sale__text-delivery text-delivery"></p>
+                                    <p class="sale__text-title text-title"></p>
+                                    <p class="sale__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="sale__text-sale text-sale"></span>
+                                        <span class="sale__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="sale__text-star text-star"></span>
+                                        <span class="sale__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="sale__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="sale__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="sale__img-wrap img-wrap">
+                                    <img class="sale__img img" src="" alt="">
+                                </div>
+                                <div class="sale__text flex_col_start">
+                                    <p class="sale__text-delivery text-delivery"></p>
+                                    <p class="sale__text-title text-title"></p>
+                                    <p class="sale__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="sale__text-sale text-sale"></span>
+                                        <span class="sale__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="sale__text-star text-star"></span>
+                                        <span class="sale__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="sale__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="sale__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="sale__img-wrap img-wrap">
+                                    <img class="sale__img img" src="" alt="">
+                                </div>
+                                <div class="sale__text flex_col_start">
+                                    <p class="sale__text-delivery text-delivery"></p>
+                                    <p class="sale__text-title text-title"></p>
+                                    <p class="sale__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="sale__text-sale text-sale"></span>
+                                        <span class="sale__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="sale__text-star text-star"></span>
+                                        <span class="sale__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="sale__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="sale__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="sale__img-wrap img-wrap">
+                                    <img class="sale__img img" src="" alt="">
+                                </div>
+                                <div class="sale__text flex_col_start">
+                                    <p class="sale__text-delivery text-delivery"></p>
+                                    <p class="sale__text-title text-title"></p>
+                                    <p class="sale__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="sale__text-sale text-sale"></span>
+                                        <span class="sale__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="sale__text-star text-star"></span>
+                                        <span class="sale__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="sale__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="toy relative">
+                <div class="container">
+                    <div class="title__section">
+                        <h1>귀여움이 2배! 귀염뽀짝 장난감 모음</h1>
+                        <p><a href=“detail.html”  target=“_self”>더보기</a></p>
+                    </div>
+                </div>
+                <div class="section__arrow-wrap">
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-left fa-xl"></i>
+                    </button>
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-right fa-xl"></i>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="toy__wrap section-wrap">
+                        <div class="toy__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="toy__img-wrap img-wrap">
+                                    <img class="toy__img img" src="" alt="">
+                                </div>
+                                <div class="toy__text flex_col_start">
+                                    <p class="toy__text-delivery text-delivery"></p>
+                                    <p class="toy__text-title text-title"></p>
+                                    <p class="toy__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="toy__text-sale text-sale"></span>
+                                        <span class="toy__text-price text-price"></span>
+                                    </div>
+                                    <div>
+                                        <span class="toy__text-star text-star"></span>
+                                        <span class="toy__text-reviews text-reviews"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="toy__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="toy__img-wrap img-wrap">
+                                    <img class="toy__img img" src="" alt="">
+                                </div>
+                                <div class="toy__text flex_col_start">
+                                    <p class="toy__text-delivery text-delivery"></p>
+                                    <p class="toy__text-title text-title"></p>
+                                    <p class="toy__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="toy__text-sale text-sale"></span>
+                                        <span class="toy__text-price text-price"></span>
+                                    </div>
+                                    <div>
+                                        <span class="toy__text-star text-star"></span>
+                                        <span class="toy__text-reviews text-reviews"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="toy__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="toy__img-wrap img-wrap">
+                                    <img class="toy__img img" src="" alt="">
+                                </div>
+                                <div class="toy__text flex_col_start">
+                                    <p class="toy__text-delivery text-delivery"></p>
+                                    <p class="toy__text-title text-title"></p>
+                                    <p class="toy__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="toy__text-sale text-sale"></span>
+                                        <span class="toy__text-price text-price"></span>
+                                    </div>
+                                    <div>
+                                        <span class="toy__text-star text-star"></span>
+                                        <span class="toy__text-reviews text-reviews"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="toy__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="toy__img-wrap img-wrap">
+                                    <img class="toy__img img" src="" alt="">
+                                </div>
+                                <div class="toy__text flex_col_start">
+                                    <p class="toy__text-delivery text-delivery"></p>
+                                    <p class="toy__text-title text-title"></p>
+                                    <p class="toy__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="toy__text-sale text-sale"></span>
+                                        <span class="toy__text-price text-price"></span>
+                                    </div>
+                                    <div>
+                                        <span class="toy__text-star text-star"></span>
+                                        <span class="toy__text-reviews text-reviews"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="jerky relative">
+                <div class="container">
+                    <div class="title__section">
+                        <h1>여름에도 바삭하게 동결건조 모음!</h1>
+                        <p><a href=“detail.html”  target=“_self”>더보기</a></p>
+                    </div>
+                </div>
+                <div class="section__arrow-wrap">
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-left fa-xl"></i>
+                    </button>
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-right fa-xl"></i>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="jerky__wrap section-wrap">
+                        <div class="jerky__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="jerky__img-wrap img-wrap">
+                                    <img class="jerky__img img" src="" alt="">
+                                </div>
+                                <div class="jerky__text flex_col_start">
+                                    <p class="jerky__text-delivery text-delivery"></p>
+                                    <p class="jerky__text-title text-title"></p>
+                                    <p class="jerky__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="jerky__text-sale text-sale"></span>
+                                        <span class="jerky__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="jerky__text-star text-star"></span>
+                                        <span class="jerky__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="jerky__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="jerky__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="jerky__img-wrap img-wrap">
+                                    <img class="jerky__img img" src="" alt="">
+                                </div>
+                                <div class="jerky__text flex_col_start">
+                                    <p class="jerky__text-delivery text-delivery"></p>
+                                    <p class="jerky__text-title text-title"></p>
+                                    <p class="jerky__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="jerky__text-sale text-sale"></span>
+                                        <span class="jerky__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="jerky__text-star text-star"></span>
+                                        <span class="jerky__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="jerky__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="jerky__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="jerky__img-wrap img-wrap">
+                                    <img class="jerky__img img" src="" alt="">
+                                </div>
+                                <div class="jerky__text flex_col_start">
+                                    <p class="jerky__text-delivery text-delivery"></p>
+                                    <p class="jerky__text-title text-title"></p>
+                                    <p class="jerky__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="jerky__text-sale text-sale"></span>
+                                        <span class="jerky__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="jerky__text-star text-star"></span>
+                                        <span class="jerky__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="jerky__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="jerky__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="jerky__img-wrap img-wrap">
+                                    <img class="jerky__img img" src="" alt="">
+                                </div>
+                                <div class="jerky__text flex_col_start">
+                                    <p class="jerky__text-delivery text-delivery"></p>
+                                    <p class="jerky__text-title text-title"></p>
+                                    <p class="jerky__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="jerky__text-sale text-sale"></span>
+                                        <span class="jerky__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="jerky__text-star text-star"></span>
+                                        <span class="jerky__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="jerky__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="natural relative">
+                <div class="container">
+                    <div class="title__section">
+                        <h1>네츄럴코어 간식, 아직도 안먹어봤니?</h1>
+                        <p><a href=“detail.html”  target=“_self”>더보기</a></p>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="natural__wrap section-wrap">
+                        <div class="natural__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="natural__img-wrap img-wrap">
+                                    <img class="natural__img img" src="" alt="">
+                                </div>
+                                <div class="natural__text flex_col_start">
+                                    <p class="natural__text-delivery text-delivery"></p>
+                                    <p class="natural__text-title text-title"></p>
+                                    <p class="natural__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="natural__text-sale text-sale"></span>
+                                        <span class="natural__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="natural__text-star text-star"></span>
+                                        <span class="natural__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="natural__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="natural__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="natural__img-wrap img-wrap">
+                                    <img class="natural__img img" src="" alt="">
+                                </div>
+                                <div class="natural__text flex_col_start">
+                                    <p class="natural__text-delivery text-delivery"></p>
+                                    <p class="natural__text-title text-title"></p>
+                                    <p class="natural__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="natural__text-sale text-sale"></span>
+                                        <span class="natural__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="natural__text-star text-star"></span>
+                                        <span class="natural__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="natural__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="natural__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="natural__img-wrap img-wrap">
+                                    <img class="natural__img img" src="" alt="">
+                                </div>
+                                <div class="natural__text flex_col_start">
+                                    <p class="natural__text-delivery text-delivery"></p>
+                                    <p class="natural__text-title text-title"></p>
+                                    <p class="natural__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="natural__text-sale text-sale"></span>
+                                        <span class="natural__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="natural__text-star text-star"></span>
+                                        <span class="natural__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="natural__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="natural__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="natural__img-wrap img-wrap">
+                                    <img class="natural__img img" src="" alt="">
+                                </div>
+                                <div class="natural__text flex_col_start">
+                                    <p class="natural__text-delivery text-delivery"></p>
+                                    <p class="natural__text-title text-title"></p>
+                                    <p class="natural__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="natural__text-sale text-sale"></span>
+                                        <span class="natural__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="natural__text-star text-star"></span>
+                                        <span class="natural__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="natural__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="meal relative">
+                <div class="container">
+                    <div class="title__section">
+                        <h1>한그릇으로 끝내는 완벽한 식사</h1>
+                        <p><a href=“detail.html”  target=“_self”>더보기</a></p>
+                    </div>
+                </div>
+                <div class="section__arrow-wrap">
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-left fa-xl"></i>
+                    </button>
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-right fa-xl"></i>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="meal__wrap section-wrap">
+                        <div class="meal__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="meal__img-wrap img-wrap">
+                                    <img class="meal__img img" src="" alt="">
+                                </div>
+                                <div class="meal__text flex_col_start">
+                                    <p class="meal__text-delivery text-delivery"></p>
+                                    <p class="meal__text-title text-title"></p>
+                                    <p class="meal__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="meal__text-sale text-sale"></span>
+                                        <span class="meal__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="meal__text-star text-star"></span>
+                                        <span class="meal__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="meal__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="meal__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="meal__img-wrap img-wrap">
+                                    <img class="meal__img img" src="" alt="">
+                                </div>
+                                <div class="meal__text flex_col_start">
+                                    <p class="meal__text-delivery text-delivery"></p>
+                                    <p class="meal__text-title text-title"></p>
+                                    <p class="meal__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="meal__text-sale text-sale"></span>
+                                        <span class="meal__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="meal__text-star text-star"></span>
+                                        <span class="meal__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="meal__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="meal__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="meal__img-wrap img-wrap">
+                                    <img class="meal__img img" src="" alt="">
+                                </div>
+                                <div class="meal__text flex_col_start">
+                                    <p class="meal__text-delivery text-delivery"></p>
+                                    <p class="meal__text-title text-title"></p>
+                                    <p class="meal__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="meal__text-sale text-sale"></span>
+                                        <span class="meal__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="meal__text-star text-star"></span>
+                                        <span class="meal__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="meal__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="meal__item item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="meal__img-wrap img-wrap">
+                                    <img class="meal__img img" src="" alt="">
+                                </div>
+                                <div class="meal__text flex_col_start">
+                                    <p class="meal__text-delivery text-delivery"></p>
+                                    <p class="meal__text-title text-title"></p>
+                                    <p class="meal__text-origin text-origin"></p>
+                                    <div>
+                                        <span class="meal__text-sale text-sale"></span>
+                                        <span class="meal__text-price text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="meal__text-star text-star"></span>
+                                        <span class="meal__text-reviews text-reviews"></span>
+                                    </div>
+                                    <span class="meal__text-special text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="smarttool relative">
+                <div class="container">
+                    <div class="title__section">
+                        <h1>스마트한 반려생활, 펫가전 추천템</h1>
+                        <p><a href=“detail.html”  target=“_self”>더보기</a></p>
+                    </div>
+                </div>
+                <div class="section__arrow-wrap">
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-left fa-xl"></i>
+                    </button>
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-right fa-xl"></i>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="smart__wrap">
+                        <div class="smart__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="smart__img-wrap">
+                                    <img class="smart__img" src="" alt="">
+                                </div>
+                                <div class="smart__text flex_col_start">
+                                    <p class="smart__text-delivery"></p>
+                                    <p class="smart__text-title"></p>
+                                    <p class="smart__text-origin"></p>
+                                    <div>
+                                        <span class="smart__text-sale"></span>
+                                        <span class="smart__text-price"></span>
+                                    </div>
+                                    <div>
+                                        <span class="smart__text-star"></span>
+                                        <span class="smart__text-reviews"></span>
+                                    </div>
+                                    <span class="smart__text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="smart__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="smart__img-wrap">
+                                    <img class="smart__img" src="" alt="">
+                                </div>
+                                <div class="smart__text flex_col_start">
+                                    <p class="smart__text-delivery"></p>
+                                    <p class="smart__text-title"></p>
+                                    <p class="smart__text-origin"></p>
+                                    <div>
+                                        <span class="smart__text-sale"></span>
+                                        <span class="smart__text-price"></span>
+                                    </div>
+                                    <div>
+                                        <span class="smart__text-star"></span>
+                                        <span class="smart__text-reviews"></span>
+                                    </div>
+                                    <span class="smart__text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="smart__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="smart__img-wrap">
+                                    <img class="smart__img" src="" alt="">
+                                </div>
+                                <div class="smart__text flex_col_start">
+                                    <p class="smart__text-delivery"></p>
+                                    <p class="smart__text-title"></p>
+                                    <p class="smart__text-origin"></p>
+                                    <div>
+                                        <span class="smart__text-sale"></span>
+                                        <span class="smart__text-price"></span>
+                                    </div>
+                                    <div>
+                                        <span class="smart__text-star"></span>
+                                        <span class="smart__text-reviews"></span>
+                                    </div>
+                                    <span class="smart__text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="smart__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="smart__img-wrap">
+                                    <img class="smart__img" src="" alt="">
+                                </div>
+                                <div class="smart__text flex_col_start">
+                                    <p class="smart__text-delivery"></p>
+                                    <p class="smart__text-title"></p>
+                                    <p class="smart__text-origin"></p>
+                                    <div>
+                                        <span class="smart__text-sale"></span>
+                                        <span class="smart__text-price"></span>
+                                    </div>
+                                    <div>
+                                        <span class="smart__text-star"></span>
+                                        <span class="smart__text-reviews"></span>
+                                    </div>
+                                    <span class="smart__text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="pop relative">
+                <div class="container">
+                    <div class="title__section">
+                        <h1>후기 1000개 돌파 상품</h1>
+                        <p><a href=“detail.html”  target=“_self”>더보기</a></p>
+                    </div>
+                </div>
+                <div class="section__arrow-wrap">
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-left fa-xl"></i>
+                    </button>
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-right fa-xl"></i>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="pop__wrap">
+                        <div class="pop__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="pop__img-wrap">
+                                    <img class="pop__img" src="" alt="">
+                                </div>
+                                <div class="pop__text flex_col_start">
+                                    <p class="pop__text-delivery"></p>
+                                    <p class="pop__text-title"></p>
+                                    <p class="pop__text-origin"></p>
+                                    <div>
+                                        <span class="pop__text-sale"></span>
+                                        <span class="pop__text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="pop__text-star"></span>
+                                        <span class="pop__text-reviews"></span>
+                                    </div>
+                                    <span class="pop__text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="pop__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="pop__img-wrap">
+                                    <img class="pop__img" src="" alt="">
+                                </div>
+                                <div class="pop__text flex_col_start">
+                                    <p class="pop__text-delivery"></p>
+                                    <p class="pop__text-title"></p>
+                                    <p class="pop__text-origin"></p>
+                                    <div>
+                                        <span class="pop__text-sale"></span>
+                                        <span class="pop__text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="pop__text-star"></span>
+                                        <span class="pop__text-reviews"></span>
+                                    </div>
+                                    <span class="pop__text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="pop__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="pop__img-wrap">
+                                    <img class="pop__img" src="" alt="">
+                                </div>
+                                <div class="pop__text flex_col_start">
+                                    <p class="pop__text-delivery"></p>
+                                    <p class="pop__text-title"></p>
+                                    <p class="pop__text-origin"></p>
+                                    <div>
+                                        <span class="pop__text-sale"></span>
+                                        <span class="pop__text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="pop__text-star"></span>
+                                        <span class="pop__text-reviews"></span>
+                                    </div>
+                                    <span class="pop__text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="pop__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="pop__img-wrap">
+                                    <img class="pop__img" src="" alt="">
+                                </div>
+                                <div class="pop__text flex_col_start">
+                                    <p class="pop__text-delivery"></p>
+                                    <p class="pop__text-title"></p>
+                                    <p class="pop__text-origin"></p>
+                                    <div>
+                                        <span class="pop__text-sale"></span>
+                                        <span class="pop__text-price"></span>
+                                    </div>
+                                    <div class="flex-row">
+                                        <span class="pop__text-star"></span>
+                                        <span class="pop__text-reviews"></span>
+                                    </div>
+                                    <span class="pop__text-special"></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="ranking">
+                <div class="container">
+                    <div class="ranking__title">
+                        <h1>강대랭킹</h1>
+                        <span>2023.07.27 17:04 기준</span>
+                    </div>
+                    <div class="ranking__wrap">
+                        <div class="ranking__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="ranking__item-imgbox">
+                                    <img class="ranking__item-img" src="https://img.dogpre.com/mobile/dogpre/product/92/91802_detail_9802.png" alt="">
+                                </div>
+                                <p class="ranking__item-num"></p>
+                                <div class="ranking__item-text">
+                                    <p class="ranking__item-title"></p>
+                                    <p class="ranking__item-origin text-origin"></p>
+                                    <span class="ranking__item-sale text-sale"></span>
+                                    <span class="ranking__item-price text-price"></span>
+                                    <div class="flex-row">
+                                        <span class="ranking__item-stars"></span>
+                                        <span class="ranking__item-reviwes text-reviews"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="ranking__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="ranking__item-imgbox">
+                                    <img class="ranking__item-img" src="https://img.dogpre.com/mobile/dogpre/product/92/91802_detail_9802.png" alt="">
+                                </div>
+                                <p class="ranking__item-num"></p>
+                                <div class="ranking__item-text">
+                                    <p class="ranking__item-title"></p>
+                                    <p class="ranking__item-origin text-origin"></p>
+                                    <span class="ranking__item-sale text-sale"></span>
+                                    <span class="ranking__item-price text-price"></span>
+                                    <div class="flex-row">
+                                        <span class="ranking__item-stars"></span>
+                                        <span class="ranking__item-reviwes text-reviews"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="ranking__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="ranking__item-imgbox">
+                                    <img class="ranking__item-img" src="https://img.dogpre.com/mobile/dogpre/product/92/91802_detail_9802.png" alt="">
+                                </div>
+                                <p class="ranking__item-num"></p>
+                                <div class="ranking__item-text">
+                                    <p class="ranking__item-title"></p>
+                                    <p class="ranking__item-origin text-origin"></p>
+                                    <span class="ranking__item-sale text-sale"></span>
+                                    <span class="ranking__item-price text-price"></span>
+                                    <div class="flex-row">
+                                        <span class="ranking__item-stars"></span>
+                                        <span class="ranking__item-reviwes text-reviews"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="ranking__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="ranking__item-imgbox">
+                                    <img class="ranking__item-img" src="https://img.dogpre.com/mobile/dogpre/product/92/91802_detail_9802.png" alt="">
+                                </div>
+                                <p class="ranking__item-num"></p>
+                                <div class="ranking__item-text">
+                                    <p class="ranking__item-title"></p>
+                                    <p class="ranking__item-origin text-origin"></p>
+                                    <span class="ranking__item-sale text-sale"></span>
+                                    <span class="ranking__item-price text-price"></span>
+                                    <div class="flex-row">
+                                        <span class="ranking__item-stars"></span>
+                                        <span class="ranking__item-reviwes text-reviews"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="ranking__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="ranking__item-imgbox">
+                                    <img class="ranking__item-img" src="https://img.dogpre.com/mobile/dogpre/product/92/91802_detail_9802.png" alt="">
+                                </div>
+                                <p class="ranking__item-num"></p>
+                                <div class="ranking__item-text">
+                                    <p class="ranking__item-title"></p>
+                                    <p class="ranking__item-origin text-origin"></p>
+                                    <span class="ranking__item-sale text-sale"></span>
+                                    <span class="ranking__item-price text-price"></span>
+                                    <div class="flex-row">
+                                        <span class="ranking__item-stars"></span>
+                                        <span class="ranking__item-reviwes text-reviews"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="ranking__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="ranking__item-imgbox">
+                                    <img class="ranking__item-img" src="https://img.dogpre.com/mobile/dogpre/product/92/91802_detail_9802.png" alt="">
+                                </div>
+                                <p class="ranking__item-num"></p>
+                                <div class="ranking__item-text">
+                                    <p class="ranking__item-title"></p>
+                                    <p class="ranking__item-origin text-origin"></p>
+                                    <span class="ranking__item-sale text-sale"></span>
+                                    <span class="ranking__item-price text-price"></span>
+                                    <div class="flex-row">
+                                        <span class="ranking__item-stars"></span>
+                                        <span class="ranking__item-reviwes text-reviews"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="ranking__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="ranking__item-imgbox">
+                                    <img class="ranking__item-img" src="https://img.dogpre.com/mobile/dogpre/product/92/91802_detail_9802.png" alt="">
+                                </div>
+                                <p class="ranking__item-num"></p>
+                                <div class="ranking__item-text">
+                                    <p class="ranking__item-title"></p>
+                                    <p class="ranking__item-origin text-origin"></p>
+                                    <span class="ranking__item-sale text-sale"></span>
+                                    <span class="ranking__item-price text-price"></span>
+                                    <div class="flex-row">
+                                        <span class="ranking__item-stars"></span>
+                                        <span class="ranking__item-reviwes text-reviews"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="ranking__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="ranking__item-imgbox">
+                                    <img class="ranking__item-img" src="https://img.dogpre.com/mobile/dogpre/product/92/91802_detail_9802.png" alt="">
+                                </div>
+                                <p class="ranking__item-num"></p>
+                                <div class="ranking__item-text">
+                                    <p class="ranking__item-title"></p>
+                                    <p class="ranking__item-origin text-origin"></p>
+                                    <span class="ranking__item-sale text-sale"></span>
+                                    <span class="ranking__item-price text-price"></span>
+                                    <div class="flex-row">
+                                        <span class="ranking__item-stars"></span>
+                                        <span class="ranking__item-reviwes text-reviews"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="ranking__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="ranking__item-imgbox">
+                                    <img class="ranking__item-img" src="https://img.dogpre.com/mobile/dogpre/product/92/91802_detail_9802.png" alt="">
+                                </div>
+                                <p class="ranking__item-num"></p>
+                                <div class="ranking__item-text">
+                                    <p class="ranking__item-title"></p>
+                                    <p class="ranking__item-origin text-origin"></p>
+                                    <span class="ranking__item-sale text-sale"></span>
+                                    <span class="ranking__item-price text-price"></span>
+                                    <div class="flex-row">
+                                        <span class="ranking__item-stars"></span>
+                                        <span class="ranking__item-reviwes text-reviews"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="ranking__item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="ranking__item-imgbox">
+                                    <img class="ranking__item-img" src="https://img.dogpre.com/mobile/dogpre/product/92/91802_detail_9802.png" alt="">
+                                </div>
+                                <p class="ranking__item-num"></p>
+                                <div class="ranking__item-text">
+                                    <p class="ranking__item-title"></p>
+                                    <p class="ranking__item-origin text-origin"></p>
+                                    <span class="ranking__item-sale text-sale"></span>
+                                    <span class="ranking__item-price text-price"></span>
+                                    <div class="flex-row">
+                                        <span class="ranking__item-stars"></span>
+                                        <span class="ranking__item-reviwes text-reviews"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex-col">
+                        <div class="ranking__slider">
+                            <a href=“detail.html”  target=“_self”>
+                                <img src="./img/next_right_icon.svg" alt="arrow-right" style="transform: rotate(180deg);">
+                            </a>
+                            <div>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <a href=“detail.html”  target=“_self”>
+                                <img src="./img/next_right_icon.svg" alt="arrow-right" >
+                            </a>
+                        </div>
+                        <div class="ranking__more">
+                            <span>
+                                <a href=“detail.html”  target=“_self”><strong>강대 랭킹 </strong>더보기</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="container">
+                <section class="banner__food"></section>
+                <section class="icons__brands">
+                    <div class="title__section">
+                        <h1>493+ 국내 최대 브랜드 보유!</h1>
+                        <p><a href=“detail.html”  target=“_self”>더보기</a></p>
+                    </div>
+                    <div class="icons__brands-wrap">
+                        <div class="icons__brands-item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="flex-col icons__brands-item-wrap">
+                                    <div class="icons__brands-img">
+                                        <img src="https://img.dogpre.com/web/dogpre/brand/banner/150_pc_main_page_banner_7750_1659421438.png" alt="오리젠" sizes="auto">
+                                    </div>
+                                    <p class="icons__brands-text">NOW</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="icons__brands-item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="flex-col icons__brands-item-wrap">
+                                    <div class="icons__brands-img">
+                                        <img src="https://img.dogpre.com/web/dogpre/brand/banner/acana_A_w.png" alt="아카나" sizes="auto">
+                                    </div>
+                                    <p class="icons__brands-text">아카나</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="icons__brands-item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="flex-col icons__brands-item-wrap">
+                                    <div class="icons__brands-img">
+                                        <img src="https://img.dogpre.com/web/dogpre/brand/banner/royalcanin_A_w.png" alt="로얄캐닌" sizes="auto">
+                                    </div>
+                                    <p class="icons__brands-text">로얄캐닌</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="icons__brands-item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="flex-col icons__brands-item-wrap">
+                                    <div class="icons__brands-img">
+                                        <img src="https://img.dogpre.com/web/dogpre/brand/banner/2560_pc_main_page_banner_3610_1658708068.jpg" alt="아투" sizes="auto">
+                                    </div>
+                                    <p class="icons__brands-text">아투</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="icons__brands-item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="flex-col icons__brands-item-wrap">
+                                    <div class="icons__brands-img">
+                                        <img src="https://img.dogpre.com/web/dogpre/brand/banner/now_A_w.png" alt="나우" sizes="auto">
+                                    </div>
+                                    <p class="icons__brands-text">NOW</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="icons__brands-item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="flex-col icons__brands-item-wrap">
+                                    <div class="icons__brands-img">
+                                        <img src="https://img.dogpre.com/web/dogpre/brand/banner/hills_A_w.png" alt="힐스" sizes="auto">
+                                    </div>
+                                    <p class="icons__brands-text">힐스</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="icons__brands-item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="flex-col icons__brands-item-wrap">
+                                    <div class="icons__brands-img">
+                                        <img src="https://img.dogpre.com/web/dogpre/brand/banner/ziwipeak_A_w.png" alt="지위픽" sizes="auto">
+                                    </div>
+                                    <p class="icons__brands-text">지위픽</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="icons__brands-item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="flex-col icons__brands-item-wrap">
+                                    <div class="icons__brands-img">
+                                        <img src="https://img.dogpre.com/web/dogpre/brand/banner/naturesvariety_A_w.png" alt="네이처스버라이어티" sizes="auto">
+                                    </div>
+                                    <p class="icons__brands-text">네이처스<br>버라이어티</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="icons__brands-item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="flex-col icons__brands-item-wrap">
+                                    <div class="icons__brands-img">
+                                        <img src="https://img.dogpre.com/web/dogpre/brand/banner/rawz_A_w.png" alt="로우즈" sizes="auto">
+                                    </div>
+                                    <p class="icons__brands-text">로우즈</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="icons__brands-item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="flex-col icons__brands-item-wrap">
+                                    <div class="icons__brands-img">
+                                        <img src="https://img.dogpre.com/web/dogpre/brand/banner/cesar_A_w.png" alt="시저" sizes="auto">
+                                    </div>
+                                    <p class="icons__brands-text">시저</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="icons__brands-item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="flex-col icons__brands-item-wrap">
+                                    <div class="icons__brands-img">
+                                        <img src="https://img.dogpre.com/web/dogpre/brand/banner/naturalcore_A_w.png" alt="네츄럴코어" sizes="auto">
+                                    </div>
+                                    <p class="icons__brands-text">네츄럴코어</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="icons__brands-item">
+                            <a href=“detail.html”  target=“_self”>
+                                <div class="flex-col icons__brands-item-wrap">
+                                    <div class="icons__brands-img">
+                                        <img src="https://img.dogpre.com/web/dogpre/brand/banner/naturalbalance_A_w.png" alt="네츄럴발란스" sizes="auto">
+                                    </div>
+                                    <p class="icons__brands-text">네츄럴발란스</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <section class="event">
+                    <div class="title__section">
+                        <h1>이벤트</h1>
+                        <p><a href=“detail.html”  target=“_self”>더보기</a></p>
+                    </div>
+                    <div class="event__wrap">
+                        <div class="event__item">
+                            <div class="event__img">
+                                <img src="https://img.dogpre.com/web/dogpre/event/banner/4118/4118_mobile_main_page_banner_9444.jpg" alt="dog1">
+                            </div>
+                            <div class="event__like">
+                                <h2>영양만점 수제간식 최대 61% 할인</h2>
+                            </div>
+                            <div class="event__product-wrap">
+                                <div class="event__product">
+                                    <div class="event__product-img">
+                                        <img src="https://img.dogpre.com/mobile/dogpre/product/96/95840_detail_01217108.png" alt="">
+                                    </div>
+                                    <div class="event__product-text">
+                                        <p>도러블 펫 아이스크림 딸기 + 연어 474ml 2종세트</p>
+                                        <p>32,000원</p>
+                                        <div>
+                                            <span class="text-sale">6%</span>
+                                            <span class="text-price">30,000원</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="event__product-wrap">
+                                    <div class="event__product">
+                                        <div class="event__product-img">
+                                            <img src="https://img.dogpre.com/mobile/dogpre/product/96/95835_detail_01428573.png" alt="">
+                                        </div>
+                                        <div class="event__product-text">
+                                            <p>도러블 펫 아이스크림 딸기 + 닭고기 474ml 3종세트</p>
+                                            <p>19,500원</p>
+                                            <div>
+                                                <span class="text-sale">8%</span>
+                                                <span class="text-price">18,000원</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event__item">
+                            <div class="event__img">
+                                <img src="https://img.dogpre.com/web/dogpre/event/banner/4114/4114_mobile_main_page_banner_2319.jpg" alt="dog1">
+                            </div>
+                            <div class="event__like">
+                                <h2>저알러지 푸드 최대 30% 할인</h2>
+                            </div>
+                            <div class="event__product-wrap">
+                                <div class="event__product">
+                                    <div class="event__product-img">
+                                        <img src="https://img.dogpre.com/mobile/dogpre/product/87/86134_detail_01602283.png" alt="">
+                                    </div>
+                                    <div class="event__product-text">
+                                        <p>헬로우테즈 하이포알러제닉 인섹트 800g</p>
+                                        <p>25,000원</p>
+                                        <div>
+                                            <span class="text-sale">20%</span>
+                                            <span class="text-price">20,000원</span>
+                                        </div>>
+                                    </div>
+                                </div>
+                                <div class="event__product-wrap">
+                                    <div class="event__product">
+                                        <div class="event__product-img">
+                                            <img src="https://img.dogpre.com/mobile/dogpre/product/56/55905_detail_01944458.png" alt="">
+                                        </div>
+                                        <div class="event__product-text">
+                                            <p>헬로우테즈 하이포알러제닉 인섹트 2.5kg</p>
+                                            <p>55,000원</p>
+                                            <div>
+                                                <span class="text-sale">20%</span>
+                                                <span class="text-price">44,000원</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="tip">
+                    <div class="title__section">
+                        <h1>노하우</h1>
+                        <p><a href=“detail.html”  target=“_self”>더보기</a></p>
+                    </div>
+                    <div class="tip__wrap">
+                        <div class="tip__item">
+                            <div class="tip__img">
+                                <img src="https://img.dogpre.com/web/dogpre/event/popular_keyword_theme/44_pc_main_page_banner_6112.jpg" alt="dog1">
+                            </div>
+                            <div class="tip__like">
+                                <h2>껌 좀 씹는 우리 댕댕이💞</h2>
+                            </div>
+                            <div class="tip__icons">
+                                <span>#개껌</span>
+                                <span>#스트레스해소</span>
+                                <span>#치석제거</span>
+                            </div>
+                            <div class="tip__product-wrap">
+                                <div class="tip__product">
+                                    <div class="tip__product-img">
+                                        <img src="https://img.dogpre.com/mobile/dogpre/product/87/86134_detail_01602283.png" alt="">
+                                    </div>
+                                    <div class="tip__product-text">
+                                        <p>츄통령 멍츄 한우 불리스틱 12g</p>
+                                        <p>6500원</p>
+                                        <div>
+                                            <span class="text-sale">26%</span>
+                                            <span class="text-price">4,800원</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tip__product-wrap">
+                                    <div class="tip__product">
+                                        <div class="tip__product-img">
+                                            <img src="https://img.dogpre.com/mobile/dogpre/product/56/55905_detail_01944458.png" alt="">
+                                        </div>
+                                        <div class="tip__product-text">
+                                            <p>포켄스 덴티페어리 S 80개입</p>
+                                            <p>40000원</p>
+                                            <div>
+                                                <span class="text-sale">24%</span>
+                                                <span class="text-price">30,500원</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tip__item">
+                            <div class="tip__img">
+                                <img src="https://img.dogpre.com/web/dogpre/event/popular_keyword_theme/43_pc_main_page_banner_0036.jpg" alt="dog1">
+                            </div>
+                            <div class="tip__like">
+                                <h2>닥스훈트야, 넌 뭘 좋아하니?</h2>
+                            </div>
+                            <div class="tip__icons">
+                                <span>#닥스훈트</span>
+                                <span>#오소리사냥꾼</span>
+                                <span>#핫도그개</span>
+                            </div>
+                            <div class="tip__product-wrap">
+                                <div class="tip__product">
+                                    <div class="tip__product-img">
+                                        <img src="https://img.dogpre.com/mobile/dogpre/product/81/80522_detail_01756806.png" alt="">
+                                    </div>
+                                    <div class="tip__product-text">
+                                        <p>츄통령 리얼츄 스팀 닭가슴살 4개입</p>
+                                        <p>8,000원</p>
+                                        <div>
+                                            <span class="text-sale">24%</span>
+                                            <span class="text-price">6,500원</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tip__product-wrap">
+                                    <div class="tip__product">
+                                        <div class="tip__product-img">
+                                            <img src="https://img.dogpre.com/mobile/dogpre/product/81/80534_detail_01538987.png" alt="">
+                                        </div>
+                                        <div class="tip__product-text">
+                                            <p class="text-title">츄통령 멍츄 산양유 우피스틱 35g</p>
+                                            <p class="text-origin">8,500원</p>
+                                            <div>
+                                                <span class="text-sale">24%</span>
+                                                <span class="text-price">6,500원</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section class="reviews relative" style="clear: both;">
+                <div class="container">
+                    <div class="title__section">
+                        <h1>강아지대통령 구매후기</h1>
+                        <p><a href=“detail.html”  target=“_self”>더보기</a></p>
+                    </div>
+                </div>
+                <div class="section__arrow-wrap">
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-left fa-xl"></i>
+                    </button>
+                    <button class="section__arrow-item">
+                        <i class="fa-solid fa-chevron-right fa-xl"></i>
+                    </button>
+                </div>
+                <div class="container">
+                    <div class="reviews__item">
+                        <div class="reviews__wrap">
+                            <div class="reviews__box">
+                                <span class="text-star">⭐⭐⭐⭐⭐</span>
+                                <h4>조아요</h4>
+                                <p>너무 잘먹어요ㅠㅠ</p>
+                            </div>
+                            <div class="reviews__icon">
+                                    <img
+                                    src="https://dogpre.com/images/dogpre/profile-empty.svg"
+                                    alt="dog"
+                                    />
+                                    <div class="reviews__icon-wrap">
+                                        <div class="reviews__icon-first">
+                                            <p >토이 푸들</p>
+                                            <p>2023.07.27</p>
+                                        </div>
+                                        <p class="reviews__icon-second">한*희</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reviews__wrap">
+                            <div class="reviews__box">
+                                <span class="text-star">⭐⭐⭐⭐⭐</span>
+                                <h4>편리합니다</h4>
+                                <p>배송 무지빠르고 물건도많아서좋아요</p>
+                            </div>
+                            <div class="reviews__icon">
+                                    <img
+                                    src="https://dogpre.com/images/dogpre/profile-empty.svg"
+                                    alt="dog"
+                                    />
+                                    <div class="reviews__icon-wrap">
+                                        <div class="reviews__icon-first">
+                                            <p >견종 모름</p>
+                                            <p>2023.07.27</p>
+                                        </div>
+                                        <p class="reviews__icon-second">고*롬</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reviews__wrap">
+                            <div class="reviews__box">
+                                <span class="text-star">⭐⭐⭐⭐⭐</span>
+                                <h4>아주 편해요</h4>
+                                <p>항상 구매하던 상품을 이곳에서 최저가로 구매하고 아주 만족합니다. 게다가 앱이 불편함이 하나 없이 편하게 되어있어서 좋아요</p>
+                            </div>
+                            <div class="reviews__icon">
+                                    <img
+                                    src="https://dogpre.com/images/dogpre/profile-empty.svg"
+                                    alt="dog"
+                                    />
+                                    <div class="reviews__icon-wrap">
+                                        <div class="reviews__icon-first">
+                                            <p >실키 테리어</p>
+                                            <p>2023.07.31</p>
+                                        </div>
+                                        <p class="reviews__icon-second">손*오</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer>
+                <div class="banner_footer">
+                    <div class="promise">
+                        <div class="container">
+                            <ul>
+                                <li>
+                                    <a href=“detail.html”  target=“_self”>
+                                    <img
+                                        src="https://dogpre.com/images/dogpre/7-value.svg"
+                                        alt=""
+                                    />
+                                    </a>
+                                </li>
+                                <hr class="hr-col"/>
+                                <li>
+                                    <a href=“detail.html”  target=“_self”>
+                                    <img src="https://dogpre.com/images/responsible.svg" alt="" />
+                                    </a>
+                                </li>
+                                <hr class="hr-col"/>
+                                <li>
+                                    <a href=“detail.html”  target=“_self”>
+                                    <img src="https://dogpre.com/images/preDelivery.svg" alt="" />
+                                    </a>
+                                </li>
+                                <hr class="hr-col"/>
+                                <li>
+                                    <a href=“detail.html”  target=“_self”>
+                                    <img src="https://dogpre.com/images/free.svg" alt="" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="intro">
+                        <div>
+                            <img src="./img/logo.PNG" alt="logo" />
+                        </div>
+                        <div class="footer__txt-wrap">
+                            <div class="footer__txt-grey footer__txt-item" >
+                                <a href=“detail.html”  target=“_self”>
+                                    <span class="footer__txt-grey">회사소개</span>
+                                </a>
+                                <span>|</span>
+                                <a href=“detail.html”  target=“_self”>
+                                    <span class="footer__txt-grey" style="color: #000000;">개인정보처리방침</span>
+                                </a>
+                                <span>|</span>
+                                <a href=“detail.html”  target=“_self”>
+                                    <span class="footer__txt-grey">이용약관</span>
+                                </a>
+                                <span>|</span>
+                                <a href=“detail.html”  target=“_self”>
+                                    <span class="footer__txt-grey">제휴 입점 및 문의</span>
+                                </a>
+                                <span>|</span>
+                                <a href=“detail.html”  target=“_self”>
+                                    <span class="footer__txt-grey">사업자 정보</span>
+                                </a>
+                            </div>
+                            <div class="footer__txt-second">
+                                <div class="footer__txt-item">
+                                    <span class="footer__txt-black">대표자</span>
+                                    <span class="footer__txt-num">김도성</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-black">사업자등록번호</span>
+                                    <span class="footer__txt-num">127-86-32494</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-black">주소</span>
+                                    <span class="footer__txt-num">서울특별시 강남구 삼성로 570 석천빌딩 지하 1층</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-black">구매안전(에스크로)서비스</span>
+                                </div>
+                                <div class="footer__txt-item">
+                                    <span class="footer__txt-black">통신판매업</span>
+                                    <span class="footer__txt-num">제 2013-서울강남-01570호</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-num">개인정보보호책임자</span>
+                                    <span class="footer__txt-grey">최온섭</span>
+                                    <span class="hr-small">|</span>
+                                    <span class="footer__txt-black">팩스</span>
+                                    <span class="footer__txt-num">02-585-8477</span>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="footer__txt-num">Tel. 1588-2469</span>
+                                <a href=“detail.html”  target=“_self”><span class="footer__txt-num">Email. webmaster@funnc.com</span></a>
+                            </div>
+                        </div>
+                        <div class="footer__title-section" style="margin: 0 auto 20px 0;">
+                            <div class="button__cs">
+                                <button>채팅문의</button>
+                            </div>
+                        <div>
+                            <div class="sns">
+                                <a href=""><img src="./img/fb.png" alt="facebook" /></a>
+                            </div>
+                            <div class="sns">
+                                <a href=""><img src="./img/insta.png" alt="instagram" /></a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="support">
+                        <hr />
+                        <ul>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-2-logo.jpg"
+                                        alt="세스코"
+                                    />
+                                </picture>
+                            </li>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-3-logo.jpg"
+                                        alt="공정거래위원회"
+                                    />
+                                </picture>
+                            </li>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-4-logo.jpg"
+                                        alt="소비자원"
+                                    />
+                                </picture>
+                            </li>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-5-logo.jpg"
+                                        alt="코모도"
+                                    />
+                                </picture>
+                            </li>
+                            <li>
+                                <picture>
+                                    <img
+                                        src="https://dogpre.com/images/partner-6-logo.jpg"
+                                        alt="서울보증"
+                                    />
+                                </picture>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="service">
+                    <span
+                        >기업은행 채무지급보증 안내 당사는 고객님이 현금 결제한 금액에 대해
+                        기업은행과 채무지급보증 계약을 체결하여 안전거래를 보장하고
+                        있습니다.
+                    </span>
+                    <span>
+                        <a href=“detail.html”  target=“_self”> 서비스 가입 사실 확인 </a>
+                    </span>
+                </div> -->
+            </footer>
+        </div>
+    </body>
+</html>

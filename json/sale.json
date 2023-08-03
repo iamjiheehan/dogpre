@@ -1,0 +1,83 @@
+[
+    {  
+        "delivery":"대통령배송",
+        "title": "[유통기한 임박 20.09.30][구성품 1_스푼]38.5°C 프리미엄 베이비 펫밀 500g",
+        "original" : "35,000원",
+        "sale" : "45%",
+        "price": "19,360원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/97/96321_detail_01976719.jpg"
+    },
+    {  
+        "delivery":"대통령배송",
+        "title": "[유통기한 임박 20.10.06]로얄캐닌 미니 코트 케어3kg 피모관리",
+        "original" : "50,000원",
+        "sale" : "26%",
+        "price": "36,800원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/97/96659_detail_01610005.png",
+        "special":"무료배송"
+    },
+    {  
+        "delivery":"대통령배송",
+        "title": "[유통기한 임박 20.09.11]스텔라앤츄이스 디너패티치킨 156g",
+        "original" : "12,000원",
+        "sale" : "35%",
+        "price": "19,000원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/96/95141_detail_01501881.png",
+        "score":"4",
+        "reviews":"1"
+    }, 
+    {  
+        "delivery":"대통령배송",
+        "title": "[유통기한 임박 20.09.11]스텔라앤츄이스 디너패티 터키 156g",
+        "original" : "29,000원",
+        "sale" : "35%",
+        "price": "19,000원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/96/95142_detail_01247605.png",
+        "score":"5",
+        "reviews":"4"
+    },
+    {  
+        "delivery":"대통령배송",
+        "title": "[유통기한 임박 20.09.16]빌리스벳 프로바이오틱스 C 30g",
+        "original" : "39,000원",
+        "sale" : "23%",
+        "price": "29,900원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/89/88654_detail_01478417.jpg"
+    },
+    {  
+        "delivery":"대통령배송",
+        "title": "[유통기한 임박 20.10.06]로얄캐닌 미니 코트케어 1kg 피모관리",
+        "original" : "12,000원",
+        "sale" : "25%",
+        "price": "20,000원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/95/94308_detail_01512326.png"
+    },
+    {  
+        "delivery":"대통령배송",
+        "title": "[유통기한 임박 20.09.27]로얄캐닌 시츄 퍼피 1.5kg 단두종 치석관리",
+        "original" : "12,000원",
+        "sale" : "31%",
+        "price": "21,000원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/95/94259_detail_01115923.png",
+        "score":"2",
+        "reviews":"2"
+    },
+    {  
+        "delivery":"대통령배송",
+        "title": "[유통기한 임박 20.09.04]아투 독 오리 1.5kg",
+        "original" : "44,000원",
+        "sale" : "33%",
+        "price": "29,500원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/97/96313_detail_01763199.png",
+        "score":"5",
+        "reviews":"296"
+    },
+    {  
+        "delivery":"대통령배송",
+        "title": "[유통기한 임박 20.09.10]빌리스벳 프로바이오틱스 S 30g",
+        "original" : "39,000원",
+        "sale" : "23%",
+        "price": "29,900원",
+        "url": "https://img.dogpre.com/mobile/dogpre/product/89/88656_detail_01779724.jpg"
+    }
+]
