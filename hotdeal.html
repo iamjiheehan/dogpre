@@ -16,7 +16,6 @@
         <!-- 핫딜 -->
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                // Function to fetch the JSON data from the file
                 function fetchJSONData(url, callback) {
                     var xhr = new XMLHttpRequest();
                     xhr.onreadystatechange = function () {
@@ -29,13 +28,11 @@
                     xhr.send();
                 }
 
-                // Function to update the HTML with product information
                 function updateProductInfo(data) {
                     var hotdealItems = document.querySelectorAll(".hotdeal__item");
 
-                    // Loop through each item in the JSON data and update the corresponding elements
                     data.forEach(function (item, index) {
-                        var hotdealItem = hotdealItems[index]; // Get the current .hotdeal__item element
+                        var hotdealItem = hotdealItems[index]; 
 
                         var hotdealImg = hotdealItem.querySelector(".hotdeal__img");
                         var hotdealTextDelivery = hotdealItem.querySelector(".hotdeal__text-delivery");
@@ -46,9 +43,7 @@
                         var hotdealTextStarLink = hotdealItem.querySelector(".hotdeal__text-star");
                         var hotdealTextReview = hotdealItem.querySelector(".hotdeal__text-reviews");
                         var hotdealTextSpecial = hotdealItem.querySelector(".hotdeal__text-special");
-                        // var hotdealTextDue = hotdealItem.querySelector(".hotdeal__text-due");
 
-                        // Update the content of the selected elements with the data from the JSON file
                         hotdealImg.src = item.url;
                         hotdealImg.alt = item.title;
                         hotdealTextDelivery.textContent = item.delivery;
@@ -59,10 +54,8 @@
                         hotdealTextStarLink.textContent = "⭐".repeat(parseInt(item.score));
                         hotdealTextReview.textContent = item.reviews;
                         hotdealTextSpecial.textContent = item.special;
-                        // hotdealTextDue.textContent = item.due;
                     });
                 }
-                // Fetch the JSON data and update the HTML with product information
                 fetchJSONData("./json/hotdeal-sub.json", updateProductInfo);
             });
         </script>
